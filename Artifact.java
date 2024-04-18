@@ -5,6 +5,7 @@ public class Artifact{
  public String name;
  public String desc;
  public double value;
+ //Artifact starts in room ArrayList then when user picks up - .remove from room Arraylist --> .add Inventory ArrayList
  public ArrayList<Artifact> artifactsR1;
  public ArrayList<Artifact> artifactsR2;
  public ArrayList<Artifact> artifactsR3;

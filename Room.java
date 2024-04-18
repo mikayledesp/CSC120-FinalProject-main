@@ -50,7 +50,8 @@ public class Room {
 
 
 
-// Look around method
+// Look around method shows artifacts 
+
  public String toString() {
    return name + " (" + desc + ")";
  }
@@ -85,7 +86,7 @@ public class Room {
    //   .putEdge(sabinReed, burton)
      .build();
 
-     System.out.println(myGraph1);
+    //  System.out.println(myGraph1);
  }
 
 }
