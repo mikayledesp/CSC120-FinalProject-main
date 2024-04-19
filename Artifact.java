@@ -32,6 +32,7 @@ public class Artifact{
     Artifact A1 = new Artifact("", null, 0);
     System.out.println(A1);
  }
+ 
 
 
 

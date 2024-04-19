@@ -27,7 +27,8 @@ public class Room {
 
  public String pickUp(String artifact){
    Scanner sc = new Scanner(System.in);
-   String pickUp = sc.nextLine();
+   String userInput = sc.nextLine();
+   // for if statement: the user and artifact have to be in the same 
    
    
 
@@ -62,6 +63,7 @@ public class Room {
 
 // Look around method shows room name and description(includes artifacts)
 
+
  public String toString() {
    return name + " (" + desc + ")";
  }
@@ -69,12 +71,6 @@ public class Room {
  public static void main(String[] args) {
 
    
-  Room room1 = new Room("Portrait Gallery", null, 0);
-  Room room2 = new Room("Apothacary", null, 0);
-  Room room3 = new Room("Historic", null, 0);
-  Room room4 = new Room("Sculpture", null, 0);
-  Room room5 = new Room("Armory", null, 0);
-  Room room6 = new Room("Animal", null, 0);
  
 
 }

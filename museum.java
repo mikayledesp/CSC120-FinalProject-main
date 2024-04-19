@@ -1,55 +1,68 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import com.google.common.graph.*;
 
 public class museum {
+    public String name;
+    Room portrait = new Room(name, name, 0);
+    Room apothacary = new Room("Old Apothacary", "Add Later", 2);
+    Room historic = new Room("Historical House", "Add Later", 2);
+    Room sculpture = new Room("Sculpture Garden", "Add Later", 2);
+    Room armor = new Room("Armor and Weapons Gallery", "Add Later", 3);
+    Room Animal = new Room("Animal Exhibit", "Add Later", 1);
+    
+    public ArrayList<Room> roomlist = new ArrayList<Room>();
+    
+    
    
+
+
+    
+    
+
     Graph <Room> map;
     Room currentLoc;
     public museum(){
-        Room portrait1 = new Room("Portrait Gallery", "Add later", 1);
-        Room apothacary2 = new Room("Old Apothacary", "Add Later", 2);
-        Room historic3 = new Room("Historical House", "Add Later", 2);
-        Room sculpture4 = new Room("Sculpture Garden", "Add Later", 2);
-        Room armor5 = new Room("Armor and Weapons Gallery", "Add Later", 3);
-        Room Animal6 = new Room("Animal Exhibit", "Add Later", 1);
+        // this.roomlist = new ArrayList<Room>();
+        // this.roomlist.add(portrait);
+        // this.roomlist.add(apothacary);
+        // this.roomlist.add(historic);
+        // this.roomlist.add(sculpture);
+        // this.roomlist.add(armor);
+        // this.roomlist.add(Animal);
+
         // portrait = 
 
 
     
     ImmutableGraph<Room> myGraph1 = GraphBuilder.undirected()
         .<Room>immutable()
-        .putEdge(portrait1, apothacary2)
-        .putEdge(apothacary2, historic3)
-        .putEdge(apothacary2, sculpture4)
-        .putEdge(historic3,sculpture4)
-        .putEdge(sculpture4, armor5)
-        .putEdge(armor5, Animal6)
+        .putEdge(portrait, apothacary)
+        .putEdge(apothacary, historic)
+        .putEdge(apothacary, sculpture)
+        .putEdge(historic,sculpture)
+        .putEdge(sculpture, armor)
+        .putEdge(armor, Animal)
         
 
-    //   .putEdge(mcConnell, sabinReed)
-    //   .putEdge(sabinReed, burton)
+   
         .build();
 
-        //  System.out.println(myGraph1);
-        // this.map = GraphBuilder< >.build();
+         System.out.println(myGraph1);
+        this.map = GraphBuilder<>.build();
         this.currentLoc = portrait1;
         }
         
-
+        //move method should go in musuem 
 
 
     public static void main(String[] args) {
-        Room room1 = new Room("Portrait Gallery", null, 0);
-        Room room2 = new Room("Apothacary", null, 0);
-        Room room3 = new Room("Historic", null, 0);
-        Room room4 = new Room("Sculpture", null, 0);
-        Room room5 = new Room("Armory", null, 0);
-        Room room6 = new Room("Animal", null, 0);
+        
 
         // This is a "flag" to let us know when the loop should end
         boolean stillPlaying = true;
         museum mymuseum = new museum();
-         mymuseum.currentLoc();
+        //  mymuseum.currentLoc();
         
 
         // We'll use this to get input from the user.
@@ -71,12 +84,14 @@ public class museum {
             // ************************************************
             // The stuff that happens in your game will go here
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-             System.out.println("You have now entered the  " + this.room1 + "");
+            // System.out.println("You have now entered the  " + portrait1 + " ");
             userResponse = userInput.nextLine().toUpperCase();
+
 
             // ***********************************************************************
             // And as the player interacts, you'll check to see if the game should end
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+            // here put how the player starts in the portrait gallery
             if (userResponse.equals("WIN") || userResponse.equals("LOSE")) {
                 stillPlaying = false;
             }
