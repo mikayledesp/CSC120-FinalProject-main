@@ -4,6 +4,8 @@ import com.google.common.graph.*;
 
 public class museum {
     public String name;
+    private Room currentRoom;
+    // private ImmutableGraph<Room>();
     Room portrait = new Room(name, name, 0);
     Room apothacary = new Room("Old Apothacary", "Add Later", 2);
     Room historic = new Room("Historical House", "Add Later", 2);
@@ -23,15 +25,6 @@ public class museum {
     Graph <Room> map;
     Room currentLoc;
     public museum(){
-        // this.roomlist = new ArrayList<Room>();
-        // this.roomlist.add(portrait);
-        // this.roomlist.add(apothacary);
-        // this.roomlist.add(historic);
-        // this.roomlist.add(sculpture);
-        // this.roomlist.add(armor);
-        // this.roomlist.add(Animal);
-
-        // portrait = 
 
 
     
@@ -43,14 +36,10 @@ public class museum {
         .putEdge(historic,sculpture)
         .putEdge(sculpture, armor)
         .putEdge(armor, Animal)
-        
-
-   
         .build();
-
-         System.out.println(myGraph1);
-        this.map = GraphBuilder<>.build();
-        this.currentLoc = portrait1;
+        this.currentRoom = portrait;
+        
+        
         }
         
         //move method should go in musuem 
