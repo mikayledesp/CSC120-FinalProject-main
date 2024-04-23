@@ -67,7 +67,7 @@ public class museum {
 
         // Instructions are sometimes helpful
         System.out.println("Game Description w insctuctions ");
-        System.out.println("You have now entered the  " + portrait + " ");
+        System.out.println("\nYou have now entered the  " + portrait + " ");
 
         // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
@@ -78,7 +78,6 @@ public class museum {
              if (userResponse.equals("LOOK AROUND")){
                 System.out.println("\nDescription of room + list of artifacts in room");
                 System.out.println("");
-
              }
              if (userResponse.equals("?")){
                 Room.showOptions();
