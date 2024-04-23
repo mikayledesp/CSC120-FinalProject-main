@@ -7,27 +7,19 @@ public class museum {
     private Room currentRoom;
     // private ImmutableGraph<Room>();
     public static Room portrait = new Room("Portrait Gallery", "Add Later", 0);
-    Room apothacary = new Room("Old Apothacary", "Add Later", 2);
-    Room historic = new Room("Historical House", "Add Later", 2);
-    Room sculpture = new Room("Sculpture Garden", "Add Later", 2);
-    Room armor = new Room("Armor and Weapons Gallery", "Add Later", 3);
-    Room Animal = new Room("Animal Exhibit", "Add Later", 1);
+    public static Room apothacary = new Room("Old Apothacary", "Add Later", 2);
+    public static Room historic = new Room("Historical House", "This Historic House dates all the way back to 1970!", 2);
+    public static Room sculpture = new Room("Sculpture Garden", "Add Later", 2);
+    public static Room armor = new Room("Armor and Weapons Gallery", "Add Later", 3);
+    public static Room Animal = new Room("Animal Exhibit", "Add Later", 1);
     
     public ArrayList<Room> roomlist = new ArrayList<Room>();
-    
-    
-   
-
-
-    
     
 
     Graph <Room> map;
     Room currentLoc;
     public museum(){
 
-
-    
     ImmutableGraph<Room> myGraph1 = GraphBuilder.undirected()
         .<Room>immutable()
         .putEdge(portrait, apothacary)
@@ -67,7 +59,7 @@ public class museum {
 
         // Instructions are sometimes helpful
         System.out.println("Game Description w insctuctions ");
-        System.out.println("You have now entered the  " + portrait + " ");
+        System.out.println("\nYou have now entered the  " + portrait + " ");
 
         // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
@@ -78,11 +70,11 @@ public class museum {
              if (userResponse.equals("LOOK AROUND")){
                 System.out.println("\nDescription of room + list of artifacts in room");
                 System.out.println("");
-
              }
-             if (userResponse.equals("?")){
+             if (userResponse.equals("HELP")){
                 Room.showOptions();
              }
+             
              
 
 
