@@ -59,7 +59,11 @@ public String name;
  // show options method 
  // has list of possible actions/ keywords
  // would override in rooms that have other action options.
+ public static void showOptions(){
+  System.out.println(" Possible actions include: ");
+  System.out.println("+ pick up ___\n + drop __\n + look around\n + examine ___\n");
 
+ } 
 
 
 // Look around method shows room name and description(includes artifacts)
@@ -70,7 +74,7 @@ public String name;
  }
 
  public static void main(String[] args) {
-
+ showOptions();
    
  
 

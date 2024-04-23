@@ -67,30 +67,31 @@ public class museum {
 
         // Instructions are sometimes helpful
         System.out.println("Game Description w insctuctions ");
+        System.out.println("You have now entered the  " + portrait + " ");
 
         // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
             // ************************************************
             // The stuff that happens in your game will go here
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-             System.out.println("You have now entered the  " + portrait + " ");
-             userResponse = userInput.nextLine().toUpperCase();
+            userResponse = userInput.nextLine().toUpperCase();
              if (userResponse.equals("LOOK AROUND")){
-                System.out.println("Description of room + list of artifacts in room");
+                System.out.println("\nDescription of room + list of artifacts in room");
                 System.out.println("");
 
              }
-             if (userResponse.equals(""))
+             if (userResponse.equals("?")){
+                Room.showOptions();
+             }
              
 
 
             // ***********************************************************************
             // And as the player interacts, you'll check to see if the game should end
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-            // here put how the player starts in the portrait gallery
-            if (userResponse.equals("WIN") || userResponse.equals("LOSE")) {
-                stillPlaying = false;
-            }
+            // if (userResponse.equals("WIN") || userResponse.equals("LOSE")) {
+            //     stillPlaying = false;
+            // }
         } while (stillPlaying);
 
         // Tidy up
