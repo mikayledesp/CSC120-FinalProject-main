@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Room {
 
- public String name;
+ 
+public String name;
  public String desc;
  public int roomChoices;
  public ArrayList<Artifact> inventory;
@@ -28,7 +29,7 @@ public class Room {
  public String pickUp(String artifact){
    Scanner sc = new Scanner(System.in);
    String userInput = sc.nextLine();
-   // for if statement: the user and artifact have to be in the same 
+   // for if statement: the user and artifact have to be in the same room
    
    
 

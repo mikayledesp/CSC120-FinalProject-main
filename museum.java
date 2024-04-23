@@ -3,10 +3,10 @@ import java.util.Scanner;
 import com.google.common.graph.*;
 
 public class museum {
-    public String name;
+    
     private Room currentRoom;
     // private ImmutableGraph<Room>();
-    Room portrait = new Room(name, name, 0);
+    public static Room portrait = new Room("Portrait Gallery", "Add Later", 0);
     Room apothacary = new Room("Old Apothacary", "Add Later", 2);
     Room historic = new Room("Historical House", "Add Later", 2);
     Room sculpture = new Room("Sculpture Garden", "Add Later", 2);
@@ -73,8 +73,15 @@ public class museum {
             // ************************************************
             // The stuff that happens in your game will go here
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-            // System.out.println("You have now entered the  " + portrait1 + " ");
-            userResponse = userInput.nextLine().toUpperCase();
+             System.out.println("You have now entered the  " + portrait + " ");
+             userResponse = userInput.nextLine().toUpperCase();
+             if (userResponse.equals("LOOK AROUND")){
+                System.out.println("Description of room + list of artifacts in room");
+                System.out.println("");
+
+             }
+             if (userResponse.equals(""))
+             
 
 
             // ***********************************************************************
