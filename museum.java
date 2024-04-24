@@ -7,12 +7,12 @@ public class museum {
     public static Room currentRoom;
     // private ImmutableGraph<Room>();
     //addition of rooms in musuem 
-    public static Room portrait = new Room("Portrait Gallery", "Add Later", 0);
-    public static Room apothacary = new Room("Old Apothacary Exhibit ", "Add Later", 2);
-    public static Room historic = new Room("Historical House", "This Historic House dates all the way back to 1970!", 2);
-    public static Room sculpture = new Room("Sculpture Garden", "Add Later", 2);
-    public static Room armor = new Room("Armor and Weapons Gallery", "This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ", 3);
-    public static Room Animal = new Room("Animal Exhibit", "This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
+    public static Room portrait = new Room("Portrait Gallery", " Add Later", 0);
+    public static Room apothacary = new Room("Old Apothacary Exhibit ", " Add Later", 2);
+    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!", 2);
+    public static Room sculpture = new Room("Sculpture Garden", " Add Later", 2);
+    public static Room armor = new Room("Armor and Weapons Gallery", " This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ", 3);
+    public static Room Animal = new Room("Animal Exhibit", " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
     
     public ArrayList<Room> roomlist = new ArrayList<Room>();
     
@@ -70,14 +70,17 @@ public class museum {
             // ************************************************
             // The stuff that happens in your game will go here
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-            userResponse = userInput.nextLine().toUpperCase();
-             if (userResponse.equals("LOOK AROUND")){
+             userResponse = userInput.nextLine().toUpperCase();
+
+             if (currentRoom == portrait && userResponse.equals("LOOK AROUND")){
                System.out.println("Artifact list print out would go here");
                System.out.println(Artifact.artifactsR1);
+               userResponse = userInput.nextLine().toUpperCase();
                 
              }
              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
                 Room.showOptions();
+                userResponse = userInput.nextLine().toUpperCase();
              }
              if(userResponse.equals("PICK UP PAINTING")){
                 //ADD TO INVENTORY METHOD WOULD GO HERE 
@@ -86,7 +89,6 @@ public class museum {
              if (currentRoom == portrait && userResponse.equals("GO SOUTH")){
                 
                 System.out.println("You are now going South! Heading towards the " + apothacary);
-                System.out.println("\nPrint apothacary's artifact list");
                 currentRoom = apothacary;
                 userResponse = userInput.nextLine().toUpperCase();
                 
@@ -96,30 +98,29 @@ public class museum {
              // ************************************************
              // actions in apothacary will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+             if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")){
+                System.out.println("Artifact list print out would go here");
+                System.out.println(Artifact.artifactsR1);
+                userResponse = userInput.nextLine().toUpperCase();
+                 
+              }
              if (currentRoom == apothacary && userResponse.equals("GO NORTH")){
                 System.out.println("\nYou are now going back north! Heading towards the " + portrait);
                 currentRoom = portrait;
                 userResponse = userInput.nextLine().toUpperCase();
              }
              if (currentRoom == apothacary && userResponse.equals("GO SOUTH")){
-                System.out.println("/nYou are now going south! Heading towards the " + sculpture);
+                System.out.println("\nYou are now going south! Heading towards the " + sculpture);
                 currentRoom = sculpture;
                 userResponse = userInput.nextLine().toUpperCase();
              }
 
              if (currentRoom == apothacary && userResponse.equals("GO EAST")){
-                System.out.println("/nYou are now going east! Heading towards the " + historic);
+                System.out.println("\nYou are now going east! Heading towards the " + historic);
                 currentRoom = historic;
                 userResponse = userInput.nextLine().toUpperCase();
              }
-             if (userResponse.equals("LOOK AROUND")){
-                System.out.println("Artifact list print out would go here");
-                System.out.println(Artifact.artifactsR1);
-                 
-              }
-              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
-                Room.showOptions();
-             }
+             
               
 
 
@@ -135,15 +136,20 @@ public class museum {
              // ************************************************
              // actions in historic house will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-
+             if (currentRoom == historic && userResponse.equals("LOOK AROUND")){
+                System.out.println("Artifact list print out would go here");
+                System.out.println(Artifact.artifactsR1);
+                userResponse = userInput.nextLine().toUpperCase();
+                 
+              }
              if (currentRoom == historic && userResponse.equals("GO WEST")){
-                System.out.println("You are now going west! Heading towards the " + apothacary);
+                System.out.println("\nYou are now going west! Heading towards the " + apothacary);
                 currentRoom = apothacary;
                 userResponse = userInput.nextLine().toUpperCase();
                 
              }  
              if (currentRoom == historic && userResponse.equals("GO SOUTH")){
-                System.out.println("You are now going south! Heading towards the " + armor);
+                System.out.println("\nYou are now going south! Heading towards the " + armor);
                 currentRoom = armor;
                 userResponse = userInput.nextLine().toUpperCase();
 
@@ -163,15 +169,20 @@ public class museum {
              // ************************************************
              // actions in scultputre exhibit  will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-
+             if (currentRoom == sculpture && userResponse.equals("LOOK AROUND")){
+                System.out.println("Artifact list print out would go here");
+                System.out.println(Artifact.artifactsR1);
+                userResponse = userInput.nextLine().toUpperCase();
+                 
+              }   
              if (currentRoom == sculpture && userResponse.equals("GO NORTH")){
-                System.out.println("You are now going north! Heading towards the " + apothacary);
+                System.out.println("\nYou are now going north! Heading towards the " + apothacary);
                 currentRoom = apothacary;
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
              if (currentRoom == sculpture && userResponse.equals("GO EAST")){
-                System.out.println("You are now going east! Heading towards the " + armor);
+                System.out.println("\nYou are now going east! Heading towards the " + armor);
                 currentRoom = armor;
                 userResponse = userInput.nextLine().toUpperCase();
 
@@ -189,20 +200,25 @@ public class museum {
              // ************************************************
              // actions in armor exhibit  will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-
+             if (currentRoom == armor && userResponse.equals("LOOK AROUND")){
+                System.out.println("Artifact list print out would go here");
+                System.out.println(Artifact.artifactsR1);
+                userResponse = userInput.nextLine().toUpperCase();
+                 
+              }
              if (currentRoom == armor && userResponse.equals("GO NORTH")){
-                System.out.println("You are now going north! Heading towards the " + historic);
+                System.out.println("\nYou are now going north! Heading towards the " + historic);
                 currentRoom = historic;
                 userResponse = userInput.nextLine().toUpperCase();
              }
              if (currentRoom == armor && userResponse.equals("GO WEST")){
-                System.out.println("You are now going west! Heading towards the " + sculpture);
+                System.out.println("\nYou are now going west! Heading towards the " + sculpture);
                 currentRoom = sculpture;
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
              if (currentRoom == armor && userResponse.equals("GO SOUTH")){
-                System.out.println("You are now going south! Heading towards the " + Animal);
+                System.out.println("\nYou are now going south! Heading towards the " + Animal);
                 currentRoom = Animal;
                 userResponse = userInput.nextLine().toUpperCase();
 
@@ -214,8 +230,14 @@ public class museum {
              // ************************************************
              // actions in animal will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+             if (currentRoom == Animal && userResponse.equals("LOOK AROUND")){
+                System.out.println("Artifact list print out would go here");
+                System.out.println(Artifact.artifactsR1);
+                userResponse = userInput.nextLine().toUpperCase();
+                 
+              }
              if (currentRoom == Animal && userResponse.equals("GO NORTH")){
-                System.out.println("You are now going north! Heading towards the " + armor);
+                System.out.println("\nYou are now going north! Heading towards the " + armor);
                 currentRoom = armor;
                 userResponse = userInput.nextLine().toUpperCase();
              }

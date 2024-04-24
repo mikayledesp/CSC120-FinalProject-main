@@ -67,7 +67,7 @@ public String name;
 
 
  public String toString() {
-   return name + " (" + desc + ")";
+   return name  + "," +  desc ;
  }
 
  public static void main(String[] args) {
