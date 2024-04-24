@@ -61,7 +61,7 @@ public String name;
  // would override in rooms that have other action options.
  public static void showOptions(){
   System.out.println(" Possible actions include: ");
-  System.out.println("+ pick up ___\n + drop __\n + look around\n + examine ___\n");
+  System.out.println(" + pick up ___\n + drop __\n + look around\n + examine ___\n + go north\n + go south\n + go east\n + go west\n");
 
  } 
 

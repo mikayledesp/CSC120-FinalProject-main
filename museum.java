@@ -4,7 +4,7 @@ import com.google.common.graph.*;
 
 public class museum {
     
-    private Room currentRoom;
+    public static Room currentRoom;
     // private ImmutableGraph<Room>();
     //addition of rooms in musuem 
     public static Room portrait = new Room("Portrait Gallery", "Add Later", 0);
@@ -72,12 +72,28 @@ public class museum {
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             userResponse = userInput.nextLine().toUpperCase();
              if (userResponse.equals("LOOK AROUND")){
-               
+               System.out.println("Artifact list print out would go here");
                 
              }
              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
                 Room.showOptions();
              }
+             if(userResponse.equals("PICK UP PAINTING")){
+                //ADD TO INVENTORY METHOD WOULD GO HERE 
+                System.out.println("You have added it to your inventory");
+             }
+             if (userResponse.equals("GO NORTH")){
+                System.out.println("You are now going North! Heading towards the Old Apothacary Exhibit");
+                currentRoom = apothacary;
+                // actions in apothacary will happen here
+               
+             }
+             if (userResponse.equals("WHAT ROOM AM I IN")){
+                System.out.println(currentRoom);
+             }
+
+
+
              
 
              

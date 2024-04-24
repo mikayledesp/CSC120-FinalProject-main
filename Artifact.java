@@ -28,6 +28,8 @@ public String name;
     Artifact A1 = new Artifact("Victorian Painting ", "beautiful painting by.....", 10);
     artifactsR1.add(A1);
  }
+
+ 
  public String toString() {
    return name + " is a " + desc ;
  }
