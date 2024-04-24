@@ -73,6 +73,7 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
              if (userResponse.equals("LOOK AROUND")){
                System.out.println("Artifact list print out would go here");
+               System.out.println(Artifact.artifactsR1);
                 
              }
              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
@@ -111,8 +112,15 @@ public class museum {
                 currentRoom = historic;
                 userResponse = userInput.nextLine().toUpperCase();
              }
-             
-
+             if (userResponse.equals("LOOK AROUND")){
+                System.out.println("Artifact list print out would go here");
+                System.out.println(Artifact.artifactsR1);
+                 
+              }
+              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
+                Room.showOptions();
+             }
+              
 
 
 
@@ -129,8 +137,18 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
 
              if (currentRoom == historic && userResponse.equals("GO WEST")){
-                System.out.println("You are now going south! Heading towards the " + apothacary);
+                System.out.println("You are now going west! Heading towards the " + apothacary);
+                currentRoom = apothacary;
+                userResponse = userInput.nextLine().toUpperCase();
+                
              }  
+             if (currentRoom == historic && userResponse.equals("GO SOUTH")){
+                System.out.println("You are now going south! Heading towards the " + armor);
+                currentRoom = armor;
+                userResponse = userInput.nextLine().toUpperCase();
+
+             }
+             
              
 
 
@@ -146,7 +164,18 @@ public class museum {
              // actions in scultputre exhibit  will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
 
+             if (currentRoom == sculpture && userResponse.equals("GO NORTH")){
+                System.out.println("You are now going north! Heading towards the " + apothacary);
+                currentRoom = apothacary;
+                userResponse = userInput.nextLine().toUpperCase();
 
+             }
+             if (currentRoom == sculpture && userResponse.equals("GO EAST")){
+                System.out.println("You are now going east! Heading towards the " + armor);
+                currentRoom = armor;
+                userResponse = userInput.nextLine().toUpperCase();
+
+             }
 
 
 
@@ -161,14 +190,35 @@ public class museum {
              // actions in armor exhibit  will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
 
+             if (currentRoom == armor && userResponse.equals("GO NORTH")){
+                System.out.println("You are now going north! Heading towards the " + historic);
+                currentRoom = historic;
+                userResponse = userInput.nextLine().toUpperCase();
+             }
+             if (currentRoom == armor && userResponse.equals("GO WEST")){
+                System.out.println("You are now going west! Heading towards the " + sculpture);
+                currentRoom = sculpture;
+                userResponse = userInput.nextLine().toUpperCase();
 
+             }
+             if (currentRoom == armor && userResponse.equals("GO SOUTH")){
+                System.out.println("You are now going south! Heading towards the " + Animal);
+                currentRoom = Animal;
+                userResponse = userInput.nextLine().toUpperCase();
+
+             }
+            
 
 
 
              // ************************************************
              // actions in animal will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-
+             if (currentRoom == Animal && userResponse.equals("GO NORTH")){
+                System.out.println("You are now going north! Heading towards the " + armor);
+                currentRoom = armor;
+                userResponse = userInput.nextLine().toUpperCase();
+             }
 
 
 

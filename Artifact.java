@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Artifact{
 
@@ -33,9 +34,13 @@ public String name;
  public String toString() {
    return name + " is a " + desc ;
  }
- 
+//  public void printList(ArrayList<Artifact> artifacts){
+//   for(int i = 0; i < artifacts.size(); i++) {
+//     System.out.println(artifacts.get(i));
+// }
+//  }
  public static void main(String[] args) {
-  System.out.println(artifactsR1);
+  
  }
  
 
@@ -44,3 +49,7 @@ public String name;
 
 
 }
+
+// **********************
+// Notes
+//need to figure out how to print list 
