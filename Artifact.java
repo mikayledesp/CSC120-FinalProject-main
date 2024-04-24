@@ -52,4 +52,4 @@ public String name;
 
 // **********************
 // Notes
-//need to figure out how to print list 
+//need to figure out how to print list in musuem class
