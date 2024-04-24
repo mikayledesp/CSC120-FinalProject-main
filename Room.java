@@ -21,7 +21,7 @@ public String name;
     this.roomChoices = roomChoices;
  }
     
- // Room P  
+   
 // Pick up method 
 	// adds to inventory based on answer to prompt
   // 
@@ -51,9 +51,6 @@ public String name;
 // lists 4 possible options 
 // if statement that correlates the right option with defeating the opponent ie(right punch destroys bear put not a sculpture or snake )
 // if wring one is picked you loose. 
-
-// enterRoom method 
- //if room choice is more than 1, make print statement asking user what room they want to go in
 
 
  // show options method 

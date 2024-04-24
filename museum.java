@@ -8,7 +8,7 @@ public class museum {
     // private ImmutableGraph<Room>();
     //addition of rooms in musuem 
     public static Room portrait = new Room("Portrait Gallery", "Add Later", 0);
-    public static Room apothacary = new Room("Old Apothacary", "Add Later", 2);
+    public static Room apothacary = new Room("Old Apothacary Exhibit ", "Add Later", 2);
     public static Room historic = new Room("Historical House", "This Historic House dates all the way back to 1970!", 2);
     public static Room sculpture = new Room("Sculpture Garden", "Add Later", 2);
     public static Room armor = new Room("Armor and Weapons Gallery", "Add Later", 3);
@@ -83,8 +83,9 @@ public class museum {
                 System.out.println("You have added it to your inventory");
              }
              if (userResponse.equals("GO NORTH")){
-                System.out.println("You are now going North! Heading towards the Old Apothacary Exhibit");
                 currentRoom = apothacary;
+                System.out.println("You are now going North! Heading towards the " + currentRoom);
+                
                 // actions in apothacary will happen here
                
              }
