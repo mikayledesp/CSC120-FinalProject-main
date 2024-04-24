@@ -6,6 +6,7 @@ public class museum {
     
     private Room currentRoom;
     // private ImmutableGraph<Room>();
+    //addition of rooms in musuem 
     public static Room portrait = new Room("Portrait Gallery", "Add Later", 0);
     public static Room apothacary = new Room("Old Apothacary", "Add Later", 2);
     public static Room historic = new Room("Historical House", "This Historic House dates all the way back to 1970!", 2);
@@ -14,6 +15,9 @@ public class museum {
     public static Room Animal = new Room("Animal Exhibit", "Add Later", 1);
     
     public ArrayList<Room> roomlist = new ArrayList<Room>();
+    
+
+    //addition of artifacts in each room
     
 
     Graph <Room> map;
@@ -58,8 +62,8 @@ public class museum {
         System.out.println("˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
 
         // Instructions are sometimes helpful
-        System.out.println("Game Description w insctuctions ");
-        System.out.println("\nYou have now entered the  " + portrait + " ");
+        System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the nirtheast has to offer.\n Your goal is to collect artifacts that will get you the most profit. ");
+        System.out.println("\nYou have now entered the  " + portrait );
 
         // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
@@ -68,12 +72,14 @@ public class museum {
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             userResponse = userInput.nextLine().toUpperCase();
              if (userResponse.equals("LOOK AROUND")){
-                System.out.println("\nDescription of room + list of artifacts in room");
-                System.out.println("");
+               
+                
              }
-             if (userResponse.equals("HELP")){
+             if (userResponse.equals("HELP") || (userResponse.equals("?"))){
                 Room.showOptions();
              }
+             
+
              
              
 
