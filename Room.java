@@ -1,7 +1,9 @@
 
 import com.google.common.graph.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Room {
 
@@ -9,7 +11,8 @@ public class Room {
 public String name;
  public String desc;
  public int roomChoices;
- public ArrayList<Artifact> inventory;
+//  public Hashtable<String, String> artifacts;
+ public ArrayList<Artifact> portraitArtifacts; 
 /**
  * Constructor with name and descrioption needed in order to build a room 
  * @param name
@@ -19,7 +22,16 @@ public String name;
     this.name = name;
     this.desc = desc;
     this.roomChoices = roomChoices;
+    this.portraitArtifacts = new ArrayList<Artifact> ();
+   
+    
  }
+
+ public void addArtifact(Artifact a){
+  portraitArtifacts.add(a);
+
+ }
+ 
     
    
 // Pick up method 

@@ -5,17 +5,39 @@ import com.google.common.graph.*;
 public class museum {
     
     public static Room currentRoom;
+
+
     // private ImmutableGraph<Room>();
     //addition of rooms in musuem 
     public static Room portrait = new Room("Portrait Gallery", " Add Later", 0);
+    // Artifacts in Portrait Gallery
+    
     public static Room apothacary = new Room("Old Apothacary Exhibit ", " Add Later", 2);
     public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!", 2);
     public static Room sculpture = new Room("Sculpture Garden", " Add Later", 2);
     public static Room armor = new Room("Armor and Weapons Gallery", " This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ", 3);
     public static Room Animal = new Room("Animal Exhibit", " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
     
-    public ArrayList<Room> roomlist = new ArrayList<Room>();
+    // public ArrayList<Room> roomlist = new ArrayList<Room>();
+
+    // public static ArrayList<Artifact> portraitArtifacts = new ArrayList<Artifact>();
+    // this.portraitArtifacts = new ArrayList<Artifact>();
+
+    public Artifact portrait1 = new Artifact("Girl with a Pearl Earring", "A 1665 portrait by Joahnnes Vermeer that emphasizes the Dutch master’s ability to capture light and emotion", 20); 
+    // this.portraitArtifacts.addArtifact(portrait1);
     
+
+    // this.portraitArtifacts.add(this.portrait1);  
+
+    // public ArrayList<Artifact> apothArtifacts = new ArrayList<Artifact>(); 
+    // public ArrayList<Artifact> histoicArtifacts = new ArrayList<Artifact>(); 
+    // public ArrayList<Artifact> sculptureArtifacts = new ArrayList<Artifact>(); 
+    // public ArrayList<Artifact> weaponsArtifacts = new ArrayList<Artifact>(); 
+    // public ArrayList<Artifact> animalArtifacts = new ArrayList<Artifact>(); 
+   
+
+    
+
 
     //addition of artifacts in each room
     
@@ -74,7 +96,7 @@ public class museum {
 
              if (currentRoom == portrait && userResponse.equals("LOOK AROUND")){
                System.out.println("Artifact list print out would go here");
-               System.out.println(Artifact.artifactsR1);
+              
                userResponse = userInput.nextLine().toUpperCase();
                 
              }
@@ -100,7 +122,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")){
                 System.out.println("Artifact list print out would go here");
-                System.out.println(Artifact.artifactsR1);
+                
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
@@ -138,7 +160,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == historic && userResponse.equals("LOOK AROUND")){
                 System.out.println("Artifact list print out would go here");
-                System.out.println(Artifact.artifactsR1);
+                
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
@@ -171,7 +193,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == sculpture && userResponse.equals("LOOK AROUND")){
                 System.out.println("Artifact list print out would go here");
-                System.out.println(Artifact.artifactsR1);
+               
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }   
@@ -202,7 +224,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == armor && userResponse.equals("LOOK AROUND")){
                 System.out.println("Artifact list print out would go here");
-                System.out.println(Artifact.artifactsR1);
+               
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
@@ -232,7 +254,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == Animal && userResponse.equals("LOOK AROUND")){
                 System.out.println("Artifact list print out would go here");
-                System.out.println(Artifact.artifactsR1);
+               
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
