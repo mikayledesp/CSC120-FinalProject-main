@@ -1,4 +1,3 @@
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 import com.google.common.graph.*;
@@ -20,11 +19,6 @@ public class museum {
     public static Room Animal = new Room("Animal Exhibit", " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
     
 
-    
-    // this.portraitArtifacts.addArtifact(portrait1);
-    
-
-    // this.portraitArtifacts.add(this.portrait1);  
 
     // public ArrayList<Artifact> apothArtifacts = new ArrayList<Artifact>(); 
     // public ArrayList<Artifact> histoicArtifacts = new ArrayList<Artifact>(); 
@@ -63,11 +57,13 @@ public class museum {
         portraitList.add(portrait1);
         portraitList.add(portrait2);
         portraitList.add(portrait3);
+        // addition of artifacts to apothacary
+
         // inventory list of type Artifact
         ArrayList<Artifact> inventory = new ArrayList<>();
 
 
-        // addition of 
+        
        
         
 
@@ -89,7 +85,7 @@ public class museum {
         System.out.println("˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
 
         // Instructions are sometimes helpful
-        System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the nirtheast has to offer.\n Your goal is to collect artifacts that will get you the most profit. ");
+        System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
         System.out.println("\nYou have now entered the  " + portrait );
         currentRoom = portrait;
 
@@ -107,23 +103,20 @@ public class museum {
                userResponse = userInput.nextLine().toUpperCase();
                 
              }
-             if (userResponse.equals("HELP") || (userResponse.equals("?"))){
-                Room.showOptions();
-                userResponse = userInput.nextLine().toUpperCase();
-             }
-             if(userResponse.equals("PICK UP GIRL WITH A PEARL EARRING")){
+             
+             if(currentRoom == portrait && userResponse.equals("PICK UP GIRL WITH A PEARL EARRING")){
                 System.out.println("Stealing from exhibit.....");
                 portraitList.remove(portrait1);
                 inventory.add(portrait1);
                 System.out.println("\nYou have added" + portrait1 +"to your inventory");
              }
-             if(userResponse.equals("PICK UP MONA LISA")){
+             if(currentRoom == portrait && userResponse.equals("PICK UP MONA LISA")){
                 System.out.println("Stealing from exhibit.....");
                 System.out.println("Uh-oh Alarms sound! Did you really think you could steal the Mona Lisa? You've overshooted your shot buddy!");
                 System.out.println("Game Over!");
                 stillPlaying = false;
              }
-             if (userResponse.equals("PICK UP SELF-PORTRAIT WITH CROPPED HAIR")){
+             if (currentRoom == portrait && userResponse.equals("PICK UP SELF-PORTRAIT WITH CROPPED HAIR")){
                 System.out.println("Stealing from exhibit.....");
                 portraitList.remove(portrait3);
                 inventory.add(portrait3);
@@ -134,10 +127,14 @@ public class museum {
                 System.out.println("You are now going South! Heading towards the " + apothacary);
                 currentRoom = apothacary;
                 userResponse = userInput.nextLine().toUpperCase();
-                
-                
+
                  
              }
+
+             if (currentRoom == portrait && userResponse.equals("GO NORTH") || userResponse.equals("GO EAST") || userResponse.equals("GO WEST") ){
+               System.out.println("ERROR: you cannot go in this direction, please try another one!");
+             }
+
              // ************************************************
              // actions in apothacary will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
@@ -300,6 +297,12 @@ public class museum {
              if(userResponse.equals("INVENTORY")){
                 System.out.println(inventory);
              }
+             if (userResponse.equals("HELP") || (userResponse.equals("?"))){
+               Room.showOptions();
+               userResponse = userInput.nextLine().toUpperCase();
+            }
+            // if(userResponse == !String)
+            //print out statements syaing you need to type words in! 
 
 
 

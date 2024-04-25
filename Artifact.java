@@ -3,8 +3,7 @@
 
 public class Artifact{
 
- 
-public static Object portraitArtifacts;
+// public static Object portraitArtifacts;
 public String name;
  public String desc;
  public double value;
