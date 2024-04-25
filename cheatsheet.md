@@ -4,8 +4,8 @@ Note:  It's a good idea to also make this list available inside the game, in res
 
 + pick up ___ 
 + drop __ 
-+ look around
-+ examine __
++ look around (Room)
++ examine (Artifact)
 + go north 
 + go south
 + go east 
