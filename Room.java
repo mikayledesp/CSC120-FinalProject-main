@@ -9,8 +9,8 @@ public class Room {
 
  
 public String name;
- public String desc;
- public int roomChoices;
+public String desc;
+public int roomChoices;
 //  public Hashtable<String, String> artifacts;
  public ArrayList<Artifact> portraitArtifacts; 
 /**
@@ -18,20 +18,12 @@ public String name;
  * @param name
  * @param desc
  */
- public Room (String name, String desc, int roomChoices){
-    this.name = name;
-    this.desc = desc;
-    this.roomChoices = roomChoices;
-    this.portraitArtifacts = new ArrayList<Artifact> ();
-   
-    
- }
-
- public void addArtifact(Artifact a){
-  portraitArtifacts.add(a);
-
- }
- 
+public Room (String name, String desc, int roomChoices){
+  this.name = name;
+  this.desc = desc;
+  this.roomChoices = roomChoices;
+  this.portraitArtifacts = new ArrayList<Artifact> ();
+}
     
    
 // Pick up method 

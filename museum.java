@@ -48,6 +48,7 @@ public class museum {
         //move method should go in musuem 
 
 
+
     public static void main(String[] args) {
         //addition of artifacts to portrait
         ArrayList<Artifact> portraitList = new ArrayList<>();
@@ -103,6 +104,10 @@ public class museum {
                userResponse = userInput.nextLine().toUpperCase();
                 
              }
+             if(currentRoom == portrait && userResponse.equals("EXAMINE GIRL WITH A PEARL EARRING")){
+               System.out.println(portrait1.desc);
+               userResponse = userInput.nextLine().toUpperCase();
+            }
              
              if(currentRoom == portrait && userResponse.equals("PICK UP GIRL WITH A PEARL EARRING")){
                 System.out.println("Stealing from exhibit.....");
