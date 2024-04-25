@@ -40,6 +40,7 @@ public class museum {
         .putEdge(sculpture, armor)
         .putEdge(armor, Animal)
         .build();
+        
         currentRoom = portrait;
         
         
@@ -109,19 +110,19 @@ public class museum {
                userResponse = userInput.nextLine().toUpperCase();
             }
              
-             if(currentRoom == portrait && userResponse.equals("PICK UP GIRL WITH A PEARL EARRING")){
+             if(currentRoom == portrait && userResponse.equals("STEAL GIRL WITH A PEARL EARRING")){
                 System.out.println("Stealing from exhibit.....");
                 portraitList.remove(portrait1);
                 inventory.add(portrait1);
                 System.out.println("\nYou have added" + portrait1 +"to your inventory");
              }
-             if(currentRoom == portrait && userResponse.equals("PICK UP MONA LISA")){
+             if(currentRoom == portrait && userResponse.equals("STEAL UP MONA LISA")){
                 System.out.println("Stealing from exhibit.....");
                 System.out.println("Uh-oh Alarms sound! Did you really think you could steal the Mona Lisa? You've overshooted your shot buddy!");
                 System.out.println("Game Over!");
                 stillPlaying = false;
              }
-             if (currentRoom == portrait && userResponse.equals("PICK UP SELF-PORTRAIT WITH CROPPED HAIR")){
+             if (currentRoom == portrait && userResponse.equals("STEAL SELF-PORTRAIT WITH CROPPED HAIR") || userResponse.equals("STEAL SELF-PORTRAIT")){
                 System.out.println("Stealing from exhibit.....");
                 portraitList.remove(portrait3);
                 inventory.add(portrait3);
@@ -139,6 +140,7 @@ public class museum {
              if (currentRoom == portrait && userResponse.equals("GO NORTH") || userResponse.equals("GO EAST") || userResponse.equals("GO WEST") ){
                System.out.println("ERROR: you cannot go in this direction, please try another one!");
              }
+            
 
              // ************************************************
              // actions in apothacary will happen here
@@ -165,6 +167,7 @@ public class museum {
                 currentRoom = historic;
                 userResponse = userInput.nextLine().toUpperCase();
              }
+            
              
               
 
@@ -182,7 +185,7 @@ public class museum {
              // actions in historic house will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == historic && userResponse.equals("LOOK AROUND")){
-                System.out.println("Artifact list print out would go here");
+                
                 
                 userResponse = userInput.nextLine().toUpperCase();
                  
@@ -199,6 +202,7 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
+            
              
              
 
@@ -232,6 +236,7 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
+           
 
 
 
@@ -268,6 +273,7 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
+             
             
 
 
@@ -286,6 +292,7 @@ public class museum {
                 currentRoom = armor;
                 userResponse = userInput.nextLine().toUpperCase();
              }
+             
 
 
 
@@ -306,6 +313,7 @@ public class museum {
                Room.showOptions();
                userResponse = userInput.nextLine().toUpperCase();
             }
+            
             // if(userResponse == !String)
             //print out statements syaing you need to type words in! 
 
