@@ -44,7 +44,7 @@ public class museum {
         currentRoom = portrait;
         
         
-        }
+   }
         
         //move method should go in musuem 
 
@@ -59,11 +59,18 @@ public class museum {
         portraitList.add(portrait1);
         portraitList.add(portrait2);
         portraitList.add(portrait3);
+
         // addition of artifacts to apothacary
+        ArrayList<Artifact> apothacaryList = new ArrayList<>(); 
+        Artifact apothacary1 = new Artifact("pearl","Add later",5); 
+        Artifact apothacary2 = new Artifact("scissors", "Add later", 5); 
+        apothacaryList.add(apothacary1); 
+        apothacaryList.add(apothacary2); 
 
         // inventory list of type Artifact
         ArrayList<Artifact> inventory = new ArrayList<>();
-
+        inventory.add(apothacary1);
+        inventory.add(apothacary2); 
 
         
        
@@ -105,29 +112,58 @@ public class museum {
                userResponse = userInput.nextLine().toUpperCase();
                 
              }
+
+             // Portrait Gallery Examine 
              if(currentRoom == portrait && userResponse.equals("EXAMINE GIRL WITH A PEARL EARRING")){
                System.out.println(portrait1.desc);
                userResponse = userInput.nextLine().toUpperCase();
-            }
-             
-             if(currentRoom == portrait && userResponse.equals("STEAL GIRL WITH A PEARL EARRING")){
-                System.out.println("Stealing from exhibit.....");
-                portraitList.remove(portrait1);
-                inventory.add(portrait1);
-                System.out.println("\nYou have added" + portrait1 +"to your inventory");
              }
-             if(currentRoom == portrait && userResponse.equals("STEAL UP MONA LISA")){
+            
+             if(currentRoom == portrait && userResponse.equals("EXAMINE SELF-PORTRAIT WITH CROPPED HAIR")){
+               System.out.println(portrait2.desc);
+               userResponse = userInput.nextLine().toUpperCase();
+             }
+
+             if(currentRoom == portrait && userResponse.equals("EXAMINE MONA LISA")){
+               System.out.println(portrait3.desc);
+               userResponse = userInput.nextLine().toUpperCase();
+             }
+             
+             // Portrait Gallery Steal 
+             if(currentRoom == portrait && userResponse.equals("STEAL GIRL WITH A PEARL EARRING")){
+               if (!inventory.contains(apothacary1) )
+                  System.out.println("The girl seems to be awaking. She says behind the frame, “I refuse to be taken off this wall until my other pearl earring is returned to me. Please find it in the Museum.” It looks like stealing a painting requires additional steps.");  
+
+               else {
+                  System.out.println("Stealing from exhibit.....");
+                  inventory.remove(apothacary1); 
+                  System.out.println("The " + apothacary1.name + " has been removed from your inventory and given to the Girl with a Pearl Earring");
+                  portraitList.remove(portrait1);
+                  inventory.add(portrait1);
+                  System.out.println(portrait1.name + " has been added to your inventory");
+               }
+            }
+         
+             if (currentRoom == portrait && userResponse.equals("STEAL SELF-PORTRAIT WITH CROPPED HAIR") || userResponse.equals("STEAL SELF-PORTRAIT")){
+               if (!inventory.contains(apothacary2) )
+                  System.out.println("Frida Kahlo’s eyes seem to start blinking at you and her painted portrait opens its mouth, “You cannot take me off the wall until you deliver me a pair of scissors, I need to cut my hair.” It looks like you must keep searching around the museum if you want to steal this painting.");  
+               else {
+                  System.out.println("Stealing from exhibit...");
+                  inventory.remove(apothacary2); 
+                  System.out.println("The " + apothacary2.name + " have been removed from your inventory and given to Frida Kahlo");
+                  portraitList.remove(portrait2);
+                  inventory.add(portrait2);
+                  System.out.println(portrait2.name + " has been added to your inventory");
+               }
+             }
+
+             if(currentRoom == portrait && userResponse.equals("STEAL MONA LISA")){
                 System.out.println("Stealing from exhibit.....");
                 System.out.println("Uh-oh Alarms sound! Did you really think you could steal the Mona Lisa? You've overshooted your shot buddy!");
                 System.out.println("Game Over!");
                 stillPlaying = false;
              }
-             if (currentRoom == portrait && userResponse.equals("STEAL SELF-PORTRAIT WITH CROPPED HAIR") || userResponse.equals("STEAL SELF-PORTRAIT")){
-                System.out.println("Stealing from exhibit.....");
-                portraitList.remove(portrait3);
-                inventory.add(portrait3);
-                System.out.println("\nYou have added" + portrait3 +"to your inventory");
-             }
+            
              if (currentRoom == portrait && userResponse.equals("GO SOUTH")){
                 
                 System.out.println("You are now going South! Heading towards the " + apothacary);
