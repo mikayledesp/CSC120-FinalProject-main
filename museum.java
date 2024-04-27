@@ -4,7 +4,8 @@ import com.google.common.graph.*;
 
 public class museum {
     
-    public static Room currentRoom;
+ public static Room currentRoom;
+ public String stats;
 
 
     
@@ -39,12 +40,18 @@ public class museum {
         .putEdge(armor, Animal)
         .build();
         
-        currentRoom = portrait;
-        
-        
+        currentRoom = portrait;      
    }
+    public String fight(){
+      if(currentRoom == Animal){
+         
+      }
+
+      return stats;
+    }
+
         
-        //move method should go in musuem 
+   
 
 
 
@@ -231,7 +238,8 @@ public class museum {
               }
               if (currentRoom == historic && userResponse.equals("EXAMINE SONY WALKMAN") || userResponse.equals("EXAMINE WALKMAN")){
                System.out.println(house1.desc);
-               System.out.println("Hmmm.....this item may be helpful later on but it doesn't have a high retail value");
+               System.out.println("Hmmm.....this item may be helpful later on but it doesn't have a high value");
+               System.out.println("To steal or not to steal...");
               }
               if (currentRoom == historic && userResponse.equals("STEAL SONY WALKMAN") || userResponse.equals("STEAL WALKMAN")){
               houseList.remove(house1);
@@ -348,12 +356,14 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
+
              if (currentRoom == Animal && userResponse.equals("GO NORTH")){
                 System.out.println("\nYou are now going north! Heading towards the " + armor);
                 currentRoom = armor;
                 userResponse = userInput.nextLine().toUpperCase();
              }
              
+             // enemy fight will happen here 
 
 
 
