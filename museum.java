@@ -10,8 +10,6 @@ public class museum {
     
     //addition of rooms in musuem 
     public static Room portrait = new Room("Portrait Gallery", " Add Later", 0);
-    // Artifacts in Portrait Gallery
-    
     public static Room apothacary = new Room("Old Apothacary Exhibit ", " Add Later", 2);
     public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!", 2);
     public static Room sculpture = new Room("Sculpture Garden", " Add Later", 2);
@@ -67,7 +65,13 @@ public class museum {
         apothacaryList.add(apothacary1); 
         apothacaryList.add(apothacary2); 
 
+        // addition of artifacts to house
+        ArrayList<Artifact> houseList = new ArrayList<>(); 
+        Artifact house1 = new Artifact("Sony Walkman", "This vintage walkman is ", 0);
+        Artifact house2 = new Artifact("Fine China Teacups", "A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 0);
+        Artifact house3 = new Artifact("Jade Pendant Tiffany & Co Necklace", "A Gold chain with a jade teardrop hanging from it.", 0);
         // inventory list of type Artifact
+        //note : the apothacary items should proabably be added to the inventory once user has entered room 
         ArrayList<Artifact> inventory = new ArrayList<>();
         inventory.add(apothacary1);
         inventory.add(apothacary2); 
@@ -93,7 +97,6 @@ public class museum {
         System.out.println("    Welcome To Our Game! ");
         System.out.println("˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
 
-        // Instructions are sometimes helpful
         System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
         System.out.println("\nYou have now entered the  " + portrait );
         currentRoom = portrait;
@@ -106,7 +109,7 @@ public class museum {
              userResponse = userInput.nextLine().toUpperCase();
 
              if (currentRoom == portrait && userResponse.equals("LOOK AROUND")){
-                System.out.println("Upon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye:\n " + "\n" + portrait1  + "\n" + portrait2  + "\n" +portrait3);
+                System.out.println("Upon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye:\n Girl With a Pearl Earring, The Mona Lisa and a Self-Portrait with Cropped Hair " );
                 
               
                userResponse = userInput.nextLine().toUpperCase();
@@ -182,8 +185,7 @@ public class museum {
              // actions in apothacary will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")){
-                System.out.println("Artifact list print out would go here");
-                
+               //  System.out.println("Artifact list print out would go here");
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
@@ -220,12 +222,38 @@ public class museum {
              // ************************************************
              // actions in historic house will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+
              if (currentRoom == historic && userResponse.equals("LOOK AROUND")){
+               System.out.println(" As you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Jade Pendant Tiffany & Co Necklace.");
                 
-                
-                userResponse = userInput.nextLine().toUpperCase();
+               userResponse = userInput.nextLine().toUpperCase();
                  
               }
+              if (currentRoom == historic && userResponse.equals("EXAMINE SONY WALKMAN") || userResponse.equals("EXAMINE WALKMAN")){
+               System.out.println(house1.desc);
+               System.out.println("Hmmm.....this item may be helpful later on but it doesn't have a high retail value");
+              }
+              if (currentRoom == historic && userResponse.equals("STEAL SONY WALKMAN") || userResponse.equals("STEAL WALKMAN")){
+              houseList.remove(house1);
+              inventory.add(house1);
+              }
+
+              if (currentRoom == historic && userResponse.equals("EXAMINE FINE CHINA TEACUPS") || userResponse.equals("EXAMINE TEACUPS")){
+               System.out.println(house2.desc);
+              }
+              if (currentRoom == historic && userResponse.equals("STEAL FINE CHINA TEACUPS") || userResponse.equals("STEAL TEACUPS")){
+               houseList.remove(house2);
+               inventory.add(house2);
+              }
+              if (currentRoom == historic && userResponse.equals("EXAMINE JADE PENDANT") || userResponse.equals("EXAMINE JADE PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("EXAMINE NECKLACE")){
+               System.out.println(house3.desc);
+              }
+              if (currentRoom == historic && userResponse.equals("STEAL JADE PENDANT") || userResponse.equals("STEAL JADE PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("STEAL NECKLACE")){
+               houseList.remove(house3);
+               inventory.add(house3);
+              }
+              
+
              if (currentRoom == historic && userResponse.equals("GO WEST")){
                 System.out.println("\nYou are now going west! Heading towards the " + apothacary);
                 currentRoom = apothacary;
@@ -238,9 +266,6 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
-            
-             
-             
 
 
 
