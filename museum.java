@@ -5,7 +5,7 @@ import com.google.common.graph.*;
 public class museum {
     
  public static Room currentRoom;
- public String stats;
+ 
 
 
     
@@ -18,19 +18,10 @@ public class museum {
     public static Room Animal = new Room("Animal Exhibit", " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
     
 
-
-    // public ArrayList<Artifact> apothArtifacts = new ArrayList<Artifact>(); 
-    // public ArrayList<Artifact> histoicArtifacts = new ArrayList<Artifact>(); 
-    // public ArrayList<Artifact> sculptureArtifacts = new ArrayList<Artifact>(); 
-    // public ArrayList<Artifact> weaponsArtifacts = new ArrayList<Artifact>(); 
-    // public ArrayList<Artifact> animalArtifacts = new ArrayList<Artifact>(); 
-   
     
-
-    Graph <Room> map;
     public museum(){
 
-    ImmutableGraph<Room> myGraph1 = GraphBuilder.undirected()
+    ImmutableGraph<Room> myGraph1 = GraphBuilder.directed()
         .<Room>immutable()
         .putEdge(portrait, apothacary)
         .putEdge(apothacary, historic)
@@ -42,20 +33,11 @@ public class museum {
         
         currentRoom = portrait;      
    }
-    public String fight(){
-      if(currentRoom == Animal){
-         
-      }
-
-      return stats;
-    }
-
-        
-   
-
+     
 
 
     public static void main(String[] args) {
+       
         //addition of artifacts to portrait
         ArrayList<Artifact> portraitList = new ArrayList<>();
         Artifact portrait1 = new Artifact("\nGirl with a Pearl Earring", "A 1665 portrait by Joahnnes Vermeer that emphasizes the Dutch master’s ability to capture light and emotion", 20); 
@@ -77,6 +59,7 @@ public class museum {
         Artifact house1 = new Artifact("Sony Walkman", "This vintage walkman is ", 0);
         Artifact house2 = new Artifact("Fine China Teacups", "A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 0);
         Artifact house3 = new Artifact("Jade Pendant Tiffany & Co Necklace", "A Gold chain with a jade teardrop hanging from it.", 0);
+
         // inventory list of type Artifact
         //note : the apothacary items should proabably be added to the inventory once user has entered room 
         ArrayList<Artifact> inventory = new ArrayList<>();
@@ -85,7 +68,8 @@ public class museum {
 
         
        
-        
+        // Enemies for different rooms are constructed bellow ↓
+         Enemies Triceratops = new Enemies("Triceratops", 20, "To engage with this thing you may need ");
 
         // This is a "flag" to let us know when the loop should end
         boolean stillPlaying = true;
@@ -107,6 +91,7 @@ public class museum {
         System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
         System.out.println("\nYou have now entered the  " + portrait );
         currentRoom = portrait;
+        
 
         // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
@@ -116,11 +101,8 @@ public class museum {
              userResponse = userInput.nextLine().toUpperCase();
 
              if (currentRoom == portrait && userResponse.equals("LOOK AROUND")){
-                System.out.println("Upon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye:\n Girl With a Pearl Earring, The Mona Lisa and a Self-Portrait with Cropped Hair " );
-                
-              
+               System.out.println("Upon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye:\n Girl With a Pearl Earring, The Mona Lisa and a Self-Portrait with Cropped Hair " );
                userResponse = userInput.nextLine().toUpperCase();
-                
              }
 
              // Portrait Gallery Examine 
@@ -183,7 +165,7 @@ public class museum {
                  
              }
 
-             if (currentRoom == portrait && userResponse.equals("GO NORTH") || userResponse.equals("GO EAST") || userResponse.equals("GO WEST") ){
+             if (currentRoom == portrait && userResponse.equals("GO NORTH") || currentRoom == portrait && userResponse.equals("GO EAST") || currentRoom == portrait && userResponse.equals("GO WEST") ){
                System.out.println("ERROR: you cannot go in this direction, please try another one!");
              }
             
@@ -214,14 +196,6 @@ public class museum {
              }
             
              
-              
-
-
-
-
-
-
-
 
 
 
@@ -263,7 +237,7 @@ public class museum {
               
 
              if (currentRoom == historic && userResponse.equals("GO WEST")){
-                System.out.println("\nYou are now going west! Heading towards the " + apothacary);
+                System.out.println("\nYou are now going west! Heading back towards the " + apothacary);
                 currentRoom = apothacary;
                 userResponse = userInput.nextLine().toUpperCase();
                 
@@ -274,13 +248,6 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
-
-
-
-
-
-
-
 
 
 
@@ -305,13 +272,6 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
-           
-
-
-
-
-
-
 
 
 
@@ -321,9 +281,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == armor && userResponse.equals("LOOK AROUND")){
                 System.out.println("Artifact list print out would go here");
-               
-                userResponse = userInput.nextLine().toUpperCase();
-                 
+                userResponse = userInput.nextLine().toUpperCase();  
               }
              if (currentRoom == armor && userResponse.equals("GO NORTH")){
                 System.out.println("\nYou are now going north! Heading towards the " + historic);
@@ -337,11 +295,12 @@ public class museum {
 
              }
              if (currentRoom == armor && userResponse.equals("GO SOUTH")){
-                System.out.println("\nYou are now going south! Heading towards the " + Animal);
+               System.out.println("\n You have now entered the Hall or Animals, as you turn to your left you hear a load roar that vibrates through the room."); 
                 currentRoom = Animal;
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
+             
              
             
 
@@ -351,8 +310,7 @@ public class museum {
              // actions in animal will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == Animal && userResponse.equals("LOOK AROUND")){
-                System.out.println("Artifact list print out would go here");
-               
+                System.out.println("\n The source of that roar? A live Triceratops!!! \n What is your next move?");
                 userResponse = userInput.nextLine().toUpperCase();
                  
               }
@@ -363,7 +321,14 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
              }
              
-             // enemy fight will happen here 
+             // enemy fight will happen here
+             
+
+             if(currentRoom == Animal && userResponse.equals("ATTACK")){
+               // only attack if sword is in inventory !
+               
+               Triceratops.swingSword("Triceratops");
+             }
 
 
 
@@ -383,26 +348,18 @@ public class museum {
              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
                Room.showOptions();
                userResponse = userInput.nextLine().toUpperCase();
-            }
+            }       
+            // try to print out graphics of directory 
+            if(userResponse.equals("DIRECTORY"))  {
+              
             
-            // if(userResponse == !String)
-            //print out statements syaing you need to type words in! 
-
-
-
-             
-
-             
-             
-
-
-            
+               
+            }                         
         } while (stillPlaying);
 
         //close scanner
         userInput.close();
-
-        
+       
         if (stillPlaying == false) {
             System.out.println("Better luck next time.");
         } 
