@@ -59,7 +59,8 @@ public class museum {
         Artifact house1 = new Artifact("Sony Walkman", "This vintage walkman is ", 0);
         Artifact house2 = new Artifact("Fine China Teacups", "A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 0);
         Artifact house3 = new Artifact("Jade Pendant Tiffany & Co Necklace", "A Gold chain with a jade teardrop hanging from it.", 0);
-
+         //addition of artifacts to armor
+         ArrayList<Artifact> armorList = new ArrayList<>();
         // inventory list of type Artifact
         //note : the apothacary items should proabably be added to the inventory once user has entered room 
         ArrayList<Artifact> inventory = new ArrayList<>();
@@ -90,6 +91,7 @@ public class museum {
 
         System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
         System.out.println("\nYou have now entered the  " + portrait );
+        Room.showOptions();
         currentRoom = portrait;
         
 
@@ -280,7 +282,7 @@ public class museum {
              // actions in armor exhibit  will happen here
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
              if (currentRoom == armor && userResponse.equals("LOOK AROUND")){
-                System.out.println("Artifact list print out would go here");
+                System.out.println("Upon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin  ");
                 userResponse = userInput.nextLine().toUpperCase();  
               }
              if (currentRoom == armor && userResponse.equals("GO NORTH")){
