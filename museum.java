@@ -5,12 +5,13 @@ import com.google.common.graph.*;
 public class museum {
     
  public static Room currentRoom;
+ public static int profit;
  
 
 
     
     //addition of rooms in musuem 
-    public static Room portrait = new Room("Portrait Gallery", " Add Later", 0);
+    public static Room portrait = new Room("Portrait Gallery", " This gallery houses portraits across all eras of art history" , 0);
     public static Room apothacary = new Room("Old Apothacary Exhibit ", " Add Later", 2);
     public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!", 2);
     public static Room sculpture = new Room("Sculpture Garden", " Add Later", 2);
@@ -49,23 +50,35 @@ public class museum {
 
         // addition of artifacts to apothacary
         ArrayList<Artifact> apothacaryList = new ArrayList<>(); 
-        Artifact apothacary1 = new Artifact("pearl","Add later",5); 
+        //changed it so that pearl earring resides in the historic house instead becuase it makes  little more sense narratively
+      //   Artifact apothacary1 = new Artifact("pearl","Add later",5); 
         Artifact apothacary2 = new Artifact("scissors", "Add later", 5); 
-        apothacaryList.add(apothacary1); 
+      //   apothacaryList.add(apothacary1); 
         apothacaryList.add(apothacary2); 
 
         // addition of artifacts to house
         ArrayList<Artifact> houseList = new ArrayList<>(); 
-        Artifact house1 = new Artifact("Sony Walkman", "This vintage walkman is ", 0);
-        Artifact house2 = new Artifact("Fine China Teacups", "A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 0);
-        Artifact house3 = new Artifact("Jade Pendant Tiffany & Co Necklace", "A Gold chain with a jade teardrop hanging from it.", 0);
+        Artifact house1 = new Artifact("\nSony Walkman", "This vintage walkman is ", 0);
+        Artifact house2 = new Artifact("\nFine China Teacups", "A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 0);
+        Artifact house3 = new Artifact("\nPearl Tiffany & Co Necklace", "A Gold chain with a pearl teardrop pendant hanging from it.", 0);
+        houseList.add(house1);
+        houseList.add(house2);
+        houseList.add(house3);
+
          //addition of artifacts to armor
          ArrayList<Artifact> armorList = new ArrayList<>();
+         Artifact armor1 = new Artifact("  Sword With a Lapis Lazuli Encrusted Hilt", null, 0);
+         Artifact armor2 = new Artifact(" Curved Dagger with a Black Hilt", null, 0);
+         Artifact armor3 = new  Artifact(" Golden Javelin ", null, 0);
+         armorList.add(armor1);
+         armorList.add(armor2);
+         armorList.add(armor3);
+        
         // inventory list of type Artifact
         //note : the apothacary items should proabably be added to the inventory once user has entered room 
         ArrayList<Artifact> inventory = new ArrayList<>();
-        inventory.add(apothacary1);
-        inventory.add(apothacary2); 
+      //   inventory.add(apothacary1);
+      //   inventory.add(apothacary2); 
 
         
        
@@ -89,9 +102,10 @@ public class museum {
         System.out.println("    Welcome To Our Game! ");
         System.out.println("˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
 
-        System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem (name can be changed later) has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
-        System.out.println("\nYou have now entered the  " + portrait );
+        System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
         Room.showOptions();
+        System.out.println("HINT: You may want to look around ane examine each items before you steal them!");
+        System.out.println("\nYou have now entered the  " + portrait );
         currentRoom = portrait;
         
 
@@ -125,13 +139,13 @@ public class museum {
              
              // Portrait Gallery Steal 
              if(currentRoom == portrait && userResponse.equals("STEAL GIRL WITH A PEARL EARRING")){
-               if (!inventory.contains(apothacary1) )
+               if (!inventory.contains(house3) )
                   System.out.println("The girl seems to be awaking. She says behind the frame, “I refuse to be taken off this wall until my other pearl earring is returned to me. Please find it in the Museum.” It looks like stealing a painting requires additional steps.");  
 
                else {
                   System.out.println("Stealing from exhibit.....");
-                  inventory.remove(apothacary1); 
-                  System.out.println("The " + apothacary1.name + " has been removed from your inventory and given to the Girl with a Pearl Earring");
+                  inventory.remove(house3); 
+                  System.out.println("The " + house3.name + " has been removed from your inventory and given to the Girl with a Pearl Earring");
                   portraitList.remove(portrait1);
                   inventory.add(portrait1);
                   System.out.println(portrait1.name + " has been added to your inventory");
@@ -163,7 +177,6 @@ public class museum {
                 System.out.println("You are now going South! Heading towards the " + apothacary);
                 currentRoom = apothacary;
                 userResponse = userInput.nextLine().toUpperCase();
-
                  
              }
 
@@ -207,7 +220,7 @@ public class museum {
              //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
 
              if (currentRoom == historic && userResponse.equals("LOOK AROUND")){
-               System.out.println(" As you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Jade Pendant Tiffany & Co Necklace.");
+               System.out.println(" As you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace.");
                 
                userResponse = userInput.nextLine().toUpperCase();
                  
@@ -220,6 +233,8 @@ public class museum {
               if (currentRoom == historic && userResponse.equals("STEAL SONY WALKMAN") || userResponse.equals("STEAL WALKMAN")){
               houseList.remove(house1);
               inventory.add(house1);
+              System.out.println("Stealing walkman...");
+              profit += house1.value;
               }
 
               if (currentRoom == historic && userResponse.equals("EXAMINE FINE CHINA TEACUPS") || userResponse.equals("EXAMINE TEACUPS")){
@@ -228,13 +243,15 @@ public class museum {
               if (currentRoom == historic && userResponse.equals("STEAL FINE CHINA TEACUPS") || userResponse.equals("STEAL TEACUPS")){
                houseList.remove(house2);
                inventory.add(house2);
+               System.out.println("Stealing teacups...");
               }
-              if (currentRoom == historic && userResponse.equals("EXAMINE JADE PENDANT") || userResponse.equals("EXAMINE JADE PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("EXAMINE NECKLACE")){
+              if (currentRoom == historic && userResponse.equals("EXAMINE PEARL PENDANT") || userResponse.equals("EXAMINE PEARL PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("EXAMINE NECKLACE")){
                System.out.println(house3.desc);
               }
-              if (currentRoom == historic && userResponse.equals("STEAL JADE PENDANT") || userResponse.equals("STEAL JADE PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("STEAL NECKLACE")){
+              if (currentRoom == historic && userResponse.equals("STEAL PEARL PENDANT") || userResponse.equals("STEAL PEARL PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("STEAL NECKLACE")){
                houseList.remove(house3);
                inventory.add(house3);
+               System.out.println("Stealing pearl pendant...");
               }
               
 
@@ -285,13 +302,41 @@ public class museum {
                 System.out.println("Upon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin  ");
                 userResponse = userInput.nextLine().toUpperCase();  
               }
+             if (currentRoom == armor && userResponse.equals("EXAMINE SWORD") || currentRoom == armor && userResponse.equals("EXAMINE SWORD WITH A LAPIS LAZULI ENCRUSTED HILT") ){ 
+                System.out.println(armor1.desc);
+             }
+             if (currentRoom == armor && userResponse.equals("STEAL SWORD") || currentRoom == armor && userResponse.equals("STEAL SWORD WITH A LAPIS LAZULI ENCRUSTED HILT") ){ 
+               System.out.println("Stealing Sword...");
+               armorList.remove(armor1);
+               inventory.add(armor1);
+               System.out.println(armor1.name + "has been successfully added to inventory");
+            }
+             if (currentRoom == armor && userResponse.equals("EXAMINE DAGGER") || currentRoom == armor && userResponse.equals("EXAMINE CURVED DAGGER WITH A BLACK HILT") ){ 
+                System.out.println(armor2.desc);
+             }
+             if (currentRoom == armor && userResponse.equals("STEAL DAGGER") || currentRoom == armor && userResponse.equals("STEAL CURVED DAGGER WITH A BLACK HILT") ){ 
+               System.out.println("Stealing Dagger....");
+               armorList.remove(armor2);
+               inventory.add(armor2);
+               System.out.println(armor2.name + "has been successfully added to inventory");
+
+            }
+             if (currentRoom == armor && userResponse.equals("EXAMINE JAVELIN") || currentRoom == armor && userResponse.equals("EXAMINE GOLD JAVELIN") ){ 
+                System.out.println(armor3.desc);
+             }
+             if (currentRoom == armor && userResponse.equals("STEAL JAVELIN") || currentRoom == armor && userResponse.equals("STEAL GOLD JAVELIN") ){ 
+               System.out.println("Stealing Javelin...");
+               armorList.remove(armor3);
+               inventory.add(armor3);
+               System.out.println(armor3.name + "has been successfully added to inventory");
+            }
              if (currentRoom == armor && userResponse.equals("GO NORTH")){
-                System.out.println("\nYou are now going north! Heading towards the " + historic);
+                System.out.println("\nYou are now going north! Heading back towards the " + historic);
                 currentRoom = historic;
                 userResponse = userInput.nextLine().toUpperCase();
              }
              if (currentRoom == armor && userResponse.equals("GO WEST")){
-                System.out.println("\nYou are now going west! Heading towards the " + sculpture);
+                System.out.println("\nYou are now going west! Heading back towards the " + sculpture);
                 currentRoom = sculpture;
                 userResponse = userInput.nextLine().toUpperCase();
 
@@ -302,6 +347,7 @@ public class museum {
                 userResponse = userInput.nextLine().toUpperCase();
 
              }
+
              
              
             
@@ -328,8 +374,24 @@ public class museum {
 
              if(currentRoom == Animal && userResponse.equals("ATTACK")){
                // only attack if sword is in inventory !
+               if (inventory.contains(armor1) ){
+                  Triceratops.swingSword("Triceratops");
+                  System.out.println(Triceratops.health);
+                  //end of game dialogue that prints out inventory 
+                  System.out.println("You make your escape wit these items in your possession: " + inventory);
+                     if(inventory.size() > 2){
+                        System.out.println("You've collected a good profit of !"+ profit + "Have a nice time with your newly found riches");
+
+                     } else{
+                        System.out.println("Well... you didnt wuite loose but you didnt quite win either....");
+                     }
+               } else{
+                  System.out.println("You do not have the proper gear to attack your oppponent !!");
+                  System.out.println("The Triceratops rams into you with it's horns and delivers a fatal blow...");
+                  stillPlaying = false;
+               }
                
-               Triceratops.swingSword("Triceratops");
+               
              }
 
 

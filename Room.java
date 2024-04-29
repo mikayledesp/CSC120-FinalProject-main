@@ -59,7 +59,7 @@ public Room (String name, String desc, int roomChoices){
   */
  public static void showOptions(){
   System.out.println(" Possible actions include: ");
-  System.out.println(" + pick up ___\n + drop __\n + look around\n + examine ___\n + go north\n + go south\n + go east\n + go west\n");
+  System.out.println(" + steal ___\n + drop __\n + look around\n + examine ___\n + go north\n + go south\n + go east\n + go west\n");
 
  } 
 
