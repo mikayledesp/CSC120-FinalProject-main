@@ -1,31 +1,31 @@
+
 public class Enemies {
 
    public String name;
-   public double health;
+   public int health;
    public String speed;
+  
    
    
    // information about enemy that tells player how to take them down
    public String hint;
 
-   public Enemies(String name, double health, String hint){
+   public Enemies(String name, int health, String hint){
     this.name = name;
     this.health = health;
     
     this.hint = hint;
    }
-   public  double swingSword(String name){
-    System.out.println("You have swung your mighty sword at the vicious Triceratops");
-    health =- 10;
-    if (health == 0){
-        System.out.println("Effective Strike! However the beast still thrives, what's your next move? ");
+   /**
+    * Attack method decreases health of Triceratops opponent as it is called 
+    * @param health
+    * @return
+    */
+   public  double swingSword(int health){
+        System.out.println("You have swung your mighty sword at the vicious Triceratops");
+        health = health - 10;
 
-    } else{
-        System.out.println("You've defeated the beast!");
-        System.out.println("Now, go onward to make your escape!");
-    }
-
-    return health;
+        return health;
    }
 }
   
