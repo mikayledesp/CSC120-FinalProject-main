@@ -12,6 +12,8 @@ Note:  It's a good idea to also make this list available inside the game, in res
 + go west
 + check profit
 + attack
++ inventory
++ help
 # SPOILER ALERT
 
 If your game includes challenges that must be overcome to win, also list them below.

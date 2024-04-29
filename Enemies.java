@@ -16,16 +16,5 @@ public class Enemies {
     
     this.hint = hint;
    }
-   /**
-    * Attack method decreases health of Triceratops opponent as it is called 
-    * @param health
-    * @return
-    */
-   public  double swingSword(int health){
-        System.out.println("You have swung your mighty sword at the vicious Triceratops");
-        health = health - 10;
-
-        return health;
-   }
 }
   

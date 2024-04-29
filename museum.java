@@ -8,17 +8,11 @@ public class museum {
    public static int profit;
 
    // addition of rooms in musuem
-   public static Room portrait = new Room("Portrait Gallery",
-         " This gallery houses portraits across all eras of art history", 0);
-   public static Room apothacary = new Room("Old Apothacary Exhibit ",
-         " This Old Apothacary is home to a variety of ancient potions and gadgets", 2);
-   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",
-         2);
-   public static Room sculpture = new Room("Sculpture Garden",
-         " This Greecian Scultpure Garden was very life like pieces, some even too life like.", 2);
-   public static Room armor = new Room("Armor and Weapons Gallery",
-         " This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",
-         3);
+   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history", 0);
+   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets", 2);
+   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
+   public static Room sculpture = new Room("Sculpture Garden"," This Greecian Scultpure Garden was very life like pieces, some even too life like.", 2);
+   public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
    public static Room Animal = new Room("Animal Exhibit",
          " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
@@ -402,15 +396,14 @@ public class museum {
          if (currentRoom == Animal && userResponse.equals("ATTACK WITH SWORD")) {
             // only attack if sword is in inventory !
             if (inventory.contains(armor1)) {
-               Triceratops.swingSword(20);
+               Triceratops.health -= 10;
                System.out.println(Triceratops.health);
+               System.out.println("Effective Strike! However the beast still thrives, you may need to attack again.");
                userResponse = userInput.nextLine().toUpperCase();
                if (Triceratops.health > 0) {
-                  System.out
-                        .println("Effective Strike! However the beast still thrives, you may need to attack again.");
                   System.out.println(Triceratops.health);
                   if (userResponse.equals("ATTACK WITH SWORD") || userResponse.equals("ATTACK AGAIN")) {
-                     Triceratops.swingSword(10);
+                     Triceratops.health -= 10;
                      System.out.println(Triceratops.health);
 
                   }
@@ -419,8 +412,7 @@ public class museum {
                      System.out.println("Now, go onward to make your escape!");
                      System.out.println("\nYou make your escape wit these items in your possession: " + inventory);
                      if (inventory.size() > 2) {
-                        System.out.println("\nYou've collected a good profit of !" + profit
-                              + "Have a nice time with your newly found riches");
+                        System.out.println("\nYou've collected a good profit of !" + profit + "Have a nice time with your newly found riches");
 
                      } else {
                         System.out.println("\nWell... you didnt quite loose but you didnt quite win either....");
@@ -428,7 +420,7 @@ public class museum {
                   }
                }
 
-               // end of game dialogue that prints out inventory
+               
 
             } else {
                System.out.println("You do not have the proper gear to attack your oppponent !!");
