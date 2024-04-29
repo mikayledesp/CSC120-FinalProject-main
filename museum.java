@@ -41,9 +41,9 @@ public class museum {
        
         //addition of artifacts to portrait
         ArrayList<Artifact> portraitList = new ArrayList<>();
-        Artifact portrait1 = new Artifact("\nGirl with a Pearl Earring", "A 1665 portrait by Joahnnes Vermeer that emphasizes the Dutch master’s ability to capture light and emotion", 20); 
-        Artifact portrait2 = new Artifact("\nSelf-Portrait with Cropped Hair", "A 1940 self-portrait by Frida Kahlo right after her divorce from Diego Rivera. She abandoned her feminine image, expressing her own independence and separation from men", 40);
-        Artifact portrait3 = new Artifact("\nMona Lisa", "A 1503-1506 portrait known as a masterpiece of the Italian Renaissance and a piece of intrigue due to the subject’s enigmatic expression", 40);
+        Artifact portrait1 = new Artifact("\nGirl with a Pearl Earring", " A 1665 portrait by Joahnnes Vermeer that emphasizes the Dutch master’s ability to capture light and emotion", 20); 
+        Artifact portrait2 = new Artifact("\nSelf-Portrait with Cropped Hair", " A 1940 self-portrait by Frida Kahlo right after her divorce from Diego Rivera. She abandoned her feminine image, expressing her own independence and separation from men", 40);
+        Artifact portrait3 = new Artifact("\nMona Lisa", " A 1503-1506 portrait known as a masterpiece of the Italian Renaissance and a piece of intrigue due to the subject’s enigmatic expression", 40);
         portraitList.add(portrait1);
         portraitList.add(portrait2);
         portraitList.add(portrait3);
@@ -58,18 +58,18 @@ public class museum {
 
         // addition of artifacts to house
         ArrayList<Artifact> houseList = new ArrayList<>(); 
-        Artifact house1 = new Artifact("\nSony Walkman", "This vintage walkman is ", 0);
-        Artifact house2 = new Artifact("\nFine China Teacups", "A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 0);
-        Artifact house3 = new Artifact("\nPearl Tiffany & Co Necklace", "A Gold chain with a pearl teardrop pendant hanging from it.", 0);
+        Artifact house1 = new Artifact("\nSony Walkman", " This vintage walkman plays actual music! It's kind a of dusty tho... ", 10);
+        Artifact house2 = new Artifact("\nFine China Teacups", " A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ", 50);
+        Artifact house3 = new Artifact("\nPearl Tiffany & Co Necklace", " A Gold chain with a pearl teardrop pendant hanging from it.", 20);
         houseList.add(house1);
         houseList.add(house2);
         houseList.add(house3);
 
          //addition of artifacts to armor
          ArrayList<Artifact> armorList = new ArrayList<>();
-         Artifact armor1 = new Artifact("  Sword With a Lapis Lazuli Encrusted Hilt", null, 0);
-         Artifact armor2 = new Artifact(" Curved Dagger with a Black Hilt", null, 0);
-         Artifact armor3 = new  Artifact(" Golden Javelin ", null, 0);
+         Artifact armor1 = new Artifact("\nSword With a Lapis Lazuli Encrusted Hilt", null, 50);
+         Artifact armor2 = new Artifact("\nCurved Dagger with a Black Hilt", null, 20);
+         Artifact armor3 = new  Artifact("\nGolden Javelin ", null, 10);
          armorList.add(armor1);
          armorList.add(armor2);
          armorList.add(armor3);
@@ -98,9 +98,9 @@ public class museum {
         String userResponse = "";
 
         // This could be replaced with a more interesting opening
-        System.out.println("˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
-        System.out.println("    Welcome To Our Game! ");
-        System.out.println("˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
+        System.out.println("\n˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
+        System.out.println("\n    Welcome To The Gallery Grab ");
+        System.out.println("\n˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°˙✧˖°🏛 ༘ ⋆｡°");
 
         System.out.println("\nYou, a comptetent but broke theif, have been tasked with stealing important artifacts so that you can sell them off later. Hattfield Musuem has a huge collection  of the finest jewelery and paintings the Northeast has to offer.\n  \nGOAL: steal artifacts that will get you the most profit. ");
         Room.showOptions();
@@ -149,6 +149,7 @@ public class museum {
                   portraitList.remove(portrait1);
                   inventory.add(portrait1);
                   System.out.println(portrait1.name + " has been added to your inventory");
+                  profit += portrait1.value;
                }
             }
          
@@ -162,6 +163,7 @@ public class museum {
                   portraitList.remove(portrait2);
                   inventory.add(portrait2);
                   System.out.println(portrait2.name + " has been added to your inventory");
+                  profit += portrait2.value;
                }
              }
 
@@ -244,6 +246,7 @@ public class museum {
                houseList.remove(house2);
                inventory.add(house2);
                System.out.println("Stealing teacups...");
+               profit += house2.value;
               }
               if (currentRoom == historic && userResponse.equals("EXAMINE PEARL PENDANT") || userResponse.equals("EXAMINE PEARL PENDANT TIFFANY & CO NECKLACE") || userResponse.equals("EXAMINE NECKLACE")){
                System.out.println(house3.desc);
@@ -252,6 +255,7 @@ public class museum {
                houseList.remove(house3);
                inventory.add(house3);
                System.out.println("Stealing pearl pendant...");
+               profit += house3.value;
               }
               
 
@@ -310,6 +314,7 @@ public class museum {
                armorList.remove(armor1);
                inventory.add(armor1);
                System.out.println(armor1.name + "has been successfully added to inventory");
+               profit += armor1.value;
             }
              if (currentRoom == armor && userResponse.equals("EXAMINE DAGGER") || currentRoom == armor && userResponse.equals("EXAMINE CURVED DAGGER WITH A BLACK HILT") ){ 
                 System.out.println(armor2.desc);
@@ -319,6 +324,7 @@ public class museum {
                armorList.remove(armor2);
                inventory.add(armor2);
                System.out.println(armor2.name + "has been successfully added to inventory");
+               profit += armor2.value;
 
             }
              if (currentRoom == armor && userResponse.equals("EXAMINE JAVELIN") || currentRoom == armor && userResponse.equals("EXAMINE GOLD JAVELIN") ){ 
@@ -329,6 +335,7 @@ public class museum {
                armorList.remove(armor3);
                inventory.add(armor3);
                System.out.println(armor3.name + "has been successfully added to inventory");
+               profit += armor3.value;
             }
              if (currentRoom == armor && userResponse.equals("GO NORTH")){
                 System.out.println("\nYou are now going north! Heading back towards the " + historic);
@@ -383,7 +390,7 @@ public class museum {
                         System.out.println("You've collected a good profit of !"+ profit + "Have a nice time with your newly found riches");
 
                      } else{
-                        System.out.println("Well... you didnt wuite loose but you didnt quite win either....");
+                        System.out.println("Well... you didnt quite loose but you didnt quite win either....");
                      }
                } else{
                   System.out.println("You do not have the proper gear to attack your oppponent !!");
@@ -393,13 +400,6 @@ public class museum {
                
                
              }
-
-
-
-
-
-
-
 
 
              // strings that work across all rooms
@@ -412,7 +412,10 @@ public class museum {
              if (userResponse.equals("HELP") || (userResponse.equals("?"))){
                Room.showOptions();
                userResponse = userInput.nextLine().toUpperCase();
-            }       
+            }    
+            if(userResponse.equals("CHECK PROFIT")) {
+               System.out.println("$"+profit);
+            } 
             // try to print out graphics of directory 
             if(userResponse.equals("DIRECTORY"))  {
               
