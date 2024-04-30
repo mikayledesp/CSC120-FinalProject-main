@@ -52,7 +52,7 @@ public class museum {
       Artifact apothacary1 = new Artifact("Golden Herb Scissors", 
             "A jar of tools sits on the counter, inside it, a glistening pair of herb scissors stands out to you.", 
             10);
-      Artifact apothacary2 = new Artifact("Jar of Medicine", 
+      Artifact apothacary2 = new Artifact("Jar of Poison", 
             "One small cabinent on the far left side of the counter catches your eye. You open the door and inside is a jar filled with a purple liquid and specks of herbs", 
             10);
       Artifact apothacary3 = new Artifact("Mortar and Pestle", 
@@ -246,9 +246,9 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
          }
    
-         if (currentRoom == apothacary && userResponse.equals("EXAMINE JAR OF MEDICINE")
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE JAR OF POISON")
             || userResponse.equals("EXAMINE JAR")
-            || userResponse.equals("EXAMINE MEDICINE")) {
+            || userResponse.equals("EXAMINE POISON")) {
             System.out.println(apothacary2.desc);
             userResponse = userInput.nextLine().toUpperCase();
          }
@@ -258,6 +258,33 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
          }
          
+         //Old Apothacary Exibit Steal
+         if (currentRoom == apothacary && userResponse.equals("STEAL GOLDEN HERB SCISSORS")
+               || userResponse.equals("STEAL GOLDEN SCISSORS")
+               || userResponse.equals("STEAL HERB SCISSORS")
+               || userResponse.equals("STEAL SCISSORS")) {
+            apothacaryList.remove(apothacary1);
+            inventory.add(apothacary1);
+            System.out.println("Stealing Golden Herb Scissors...");
+            profit += apothacary1.value;
+         }
+
+         if (currentRoom == apothacary && userResponse.equals("STEAL JAR OF POISON")
+               || userResponse.equals("STEAL JAR")
+               || userResponse.equals("STEAL POISON")) {
+            apothacaryList.remove(apothacary2);
+            inventory.add(apothacary2);
+            System.out.println("Stealing Jar of Poison...");
+            profit += apothacary2.value;
+         }
+
+         if (currentRoom == apothacary && userResponse.equals("STEAL MORTAR AND PESTLE")) {
+            apothacaryList.remove(apothacary3);
+            inventory.add(apothacary3);
+            System.out.println("Stealing Mortar and Pestle...");
+            profit += apothacary3.value;
+         }
+
 
          if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going back west! Heading towards the " + portrait);
@@ -425,6 +452,14 @@ public class museum {
                System.out.println("You have " + armor3.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
                inventory.remove(armor3);
                System.out.println("You have defeated Perseus with the Head of Medua. The " + armor3.name + "has been removed from your inventory.");
+               inventory.add(sculpture2);
+               System.out.println(sculpture2.name + " has been successfully added to your inventory");
+               profit += sculpture2.value;
+            }
+            else if (inventory.contains(apothacary2)){
+               System.out.println("You have a " + apothacary2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
+               inventory.remove(apothacary2);
+               System.out.println("You have defeated Perseus with the Head of Medua. The " + apothacary2.name + "has been removed from your inventory.");
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
