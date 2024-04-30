@@ -16,7 +16,7 @@ public class museum {
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
    public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
-   public static Room Animal = new Room("Animal Exhibit",
+   public static Room animal = new Room("Animal Exhibit",
          " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
    public museum() {
@@ -28,7 +28,7 @@ public class museum {
             .putEdge(apothacary, sculpture)
             .putEdge(historic, sculpture)
             .putEdge(sculpture, armor)
-            .putEdge(armor, Animal)
+            .putEdge(armor, animal)
             .build();
 
    }
@@ -202,8 +202,8 @@ public class museum {
             stillPlaying = false;
          }
 
-         if (currentRoom == portrait && userResponse.equals("GO SOUTH")) {
-            System.out.println("You are now going South! Heading towards the " + apothacary);
+         if (currentRoom == portrait && userResponse.equals("GO EAST")) {
+            System.out.println("You are now going East! Heading towards the " + apothacary);
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
          }
@@ -212,7 +212,7 @@ public class museum {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
             userResponse = userInput.nextLine().toUpperCase();
          }
-         if (currentRoom == portrait && userResponse.equals("GO EAST")) {
+         if (currentRoom == portrait && userResponse.equals("GO SOUTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
 
             userResponse = userInput.nextLine().toUpperCase();
@@ -231,8 +231,8 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
 
          }
-         if (currentRoom == apothacary && userResponse.equals("GO NORTH")) {
-            System.out.println("\nYou are now going back north! Heading towards the " + portrait);
+         if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
+            System.out.println("\nYou are now going back west! Heading towards the " + portrait);
             currentRoom = portrait;
 
          }
@@ -247,6 +247,12 @@ public class museum {
             currentRoom = historic;
 
          }
+
+         if (currentRoom == apothacary && userResponse.equals("GO NORTH")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
 
          // ************************************************
          // actions in historic house will happen here
@@ -307,6 +313,16 @@ public class museum {
             System.out.println("\nYou are now going south! Heading towards the " + armor);
             currentRoom = armor;
 
+         }
+
+         if (currentRoom == historic && userResponse.equals("GO NORTH")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+         if (currentRoom == historic && userResponse.equals("GO EAST")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
          }
 
          // ************************************************
@@ -404,6 +420,16 @@ public class museum {
 
          }
 
+         if (currentRoom == sculpture && userResponse.equals("GO SOUTH")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+         if (currentRoom == sculpture && userResponse.equals("GO WEST")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
          // ************************************************
          // actions in armor exhibit will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
@@ -462,34 +488,55 @@ public class museum {
          if (currentRoom == armor && userResponse.equals("GO SOUTH")) {
             System.out.println(
                   "\n You have now entered the Hall or Animals, as you turn to your left you hear a load roar that vibrates through the room.");
-            currentRoom = Animal;
+            currentRoom = animal;
 
+         }
+
+         if (currentRoom == armor && userResponse.equals("GO NORTH")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
          }
 
          // ************************************************
          // actions in animal will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
-         if (currentRoom == Animal && userResponse.equals("LOOK AROUND")) {
+         if (currentRoom == animal && userResponse.equals("LOOK AROUND")) {
             System.out.println(
                   "\n The source of that roar? A live Triceratops!!! \n Specify the weapon you will use to attack!");
             userResponse = userInput.nextLine().toUpperCase();
 
          }
 
-         if (currentRoom == Animal && userResponse.equals("GO NORTH")) {
+         if (currentRoom == animal && userResponse.equals("GO NORTH")) {
             System.out.println("\nYou are now going north! Heading towards the " + armor);
             currentRoom = armor;
 
          }
 
-         if (currentRoom == Animal && userResponse.equals("ATTACK WITH DAGGER")) {
+         if (currentRoom == animal && userResponse.equals("GO SOUTH")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+
+         }
+
+         if (currentRoom == animal && userResponse.equals("GO EAST")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+         if (currentRoom == animal && userResponse.equals("GO WEST")) {
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+         if (currentRoom == animal && userResponse.equals("ATTACK WITH DAGGER")) {
             System.out.println("What is a dagger going to do against a dinosaur...");
             System.out.println("You do not have the proper gear to attack your oppponent !!");
             System.out.println("The Triceratops rams into you with it's horns and delivers a fatal blow...");
             stillPlaying = false;
          }
          // if player chooses to attack with a sword
-         if (currentRoom == Animal && userResponse.equals("ATTACK WITH SWORD")) {
+         if (currentRoom == animal && userResponse.equals("ATTACK WITH SWORD")) {
             // only attack if sword is in inventory !
             if (inventory.contains(armor1)) {
                Triceratops.health -= 10;
