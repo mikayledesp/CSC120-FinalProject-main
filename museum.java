@@ -88,7 +88,7 @@ public class museum {
       Artifact sculpture2 = new Artifact("Perseus with the Head of Medusa", 
             "An 1804-06 marble statue by Antonio Canova, reflecting his admiration of the art of antiquity and the ancient masters. It depicts Perseus gazing upon Medusa’s severed head", 
             30); 
-      Artifact sculpture3 = new Artifact(null, null, profit); 
+      Artifact sculpture3 = new Artifact("The Thinker", "A bronze sculpture created by Auguste Rodin. The original was conceived in 1880 and represented Dante, the author of the Divine Comedy, as he leans forward and observes the circles of Hell, whilst meditating on his poem.  The version here today is the more popular and enlarged version which represents a man deep in thought.", 30 ); 
       sculptureList.add(sculpture1);
       sculptureList.add(sculpture2);
       sculptureList.add(sculpture3);
@@ -348,7 +348,8 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
          }
 
-         if (currentRoom == sculpture && userResponse.equals("EXAMINE null")) {
+         if (currentRoom == sculpture && userResponse.equals("EXAMINE THE THINKER")
+            || userResponse.equals("EXAMINE THINKER")) {
             System.out.println(sculpture3.desc);
             userResponse = userInput.nextLine().toUpperCase();
          }
@@ -405,6 +406,15 @@ public class museum {
                System.out.println("Game Over!");
                stillPlaying = false;  
             }
+         }
+
+         if (currentRoom == sculpture && userResponse.equals("STEAL THE THINKER")
+            || userResponse.equals("STEAL THINKER")) {
+            System.out.println("Smart thinking! Stealing The Thinker...");
+            sculptureList.remove(sculpture3);
+            inventory.add(sculpture3);
+            System.out.println(sculpture3.name + " has been successfully added to inventory");
+            profit += sculpture3.value;
          }
          
 
