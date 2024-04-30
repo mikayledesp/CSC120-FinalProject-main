@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.sound.sampled.SourceDataLine;
-
 import com.google.common.graph.*;
 
 public class museum {
@@ -16,7 +13,7 @@ public class museum {
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
    public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
-   public static Room animal = new Room("Animal Exhibit",
+   public static Room Animal = new Room("Animal Exhibit",
          " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
    public museum() {
@@ -550,14 +547,14 @@ public class museum {
             // only attack if sword is in inventory !
             if (inventory.contains(armor1)) {
                Triceratops.health -= 10;
-               System.out.println(Triceratops.health);
+               System.out.println("Opponent Health: "+Triceratops.health);
                System.out.println("Effective Strike! However the beast still thrives, you may need to attack again.");
                userResponse = userInput.nextLine().toUpperCase();
                if (Triceratops.health > 0) {
                   System.out.println(Triceratops.health);
                   if (userResponse.equals("ATTACK WITH SWORD") || userResponse.equals("ATTACK AGAIN")) {
                      Triceratops.health -= 10;
-                     System.out.println(Triceratops.health);
+                     System.out.println("Opponent Health: "+Triceratops.health);
 
                   }
                   if (Triceratops.health == 0) {
@@ -598,9 +595,14 @@ public class museum {
             System.out.println("$" + profit);
          }
          // try to print out graphics of directory
-         if (userResponse.equals("DIRECTORY")) {
-
-         }
+         // if (userResponse.equals("DIRECTORY")) {
+         //    DisplayImage.paint();
+         //    DisplayImage img = new DisplayImage();
+         //    JFrame f = new JFrame();
+         //    f.add(img);
+         //    f.setSize(384,480);
+         //    f.setVisible(true);
+         // }
       } while (stillPlaying);
 
       // close scanner
