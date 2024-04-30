@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.sound.sampled.SourceDataLine;
+
 import com.google.common.graph.*;
 
 public class museum {
@@ -11,7 +14,7 @@ public class museum {
    public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history", 0);
    public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets", 2);
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
-   public static Room sculpture = new Room("Sculpture Garden"," This Greecian Scultpure Garden was very life like pieces, some even too life like.", 2);
+   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
    public static Room Animal = new Room("Animal Exhibit",
          " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
@@ -40,7 +43,9 @@ public class museum {
       Artifact portrait2 = new Artifact("\nSelf-Portrait with Cropped Hair",
             " A 1940 self-portrait by Frida Kahlo right after her divorce from Diego Rivera. She abandoned her feminine image, expressing her own independence and separation from men",
             40);
-      Artifact portrait3 = new Artifact("\nMona Lisa"," A 1503-1506 portrait known as a masterpiece of the Italian Renaissance and a piece of intrigue due to the subject’s enigmatic expression",40);
+      Artifact portrait3 = new Artifact("\nMona Lisa",
+            " A 1503-1506 portrait known as a masterpiece of the Italian Renaissance and a piece of intrigue due to the subject’s enigmatic expression",
+            40);
       portraitList.add(portrait1);
       portraitList.add(portrait2);
       portraitList.add(portrait3);
@@ -55,7 +60,8 @@ public class museum {
       // addition of artifacts to house
       ArrayList<Artifact> houseList = new ArrayList<>();
       Artifact house1 = new Artifact("\nSony Walkman",
-            " This vintage walkman plays actual music! It's kind a of dusty tho... ", 10);
+            " This vintage walkman plays actual music! It's kind a of dusty tho... ", 
+            10);
       Artifact house2 = new Artifact("\nFine China Teacups",
             " A set of two Fine China Teacups that have pink and green flowers imprinted near the lip of the tea cup. ",
             50);
@@ -74,12 +80,27 @@ public class museum {
       armorList.add(armor2);
       armorList.add(armor3);
 
+      // addition of artifacts to sculpture 
+      ArrayList<Artifact> sculptureList = new ArrayList<>();
+      Artifact sculpture1 = new Artifact("Little Dancer of Fourteen Years", 
+            "An 1880 bronze cast sculpture by Edgar Degas. The sculpture is dressed in a real bodice, tutu, and ballet slippers", 
+            20); 
+      Artifact sculpture2 = new Artifact("Perseus with the Head of Medusa", 
+            "An 1804-06 marble statue by Antonio Canova, reflecting his admiration of the art of antiquity and the ancient masters. It depicts Perseus gazing upon Medusa’s severed head", 
+            30); 
+      Artifact sculpture3 = new Artifact(null, null, profit); 
+      sculptureList.add(sculpture1);
+      sculptureList.add(sculpture2);
+      sculptureList.add(sculpture3);
+
       // inventory list of type Artifact
       // note : the apothacary items should proabably be added to the inventory once
       // user has entered room
       ArrayList<Artifact> inventory = new ArrayList<>();
       // inventory.add(apothacary1);
       // inventory.add(apothacary2);
+      // inventory.add(house1);
+      // inventory.add(armor1);
 
       // Enemies for different rooms are constructed bellow ↓
       Enemies Triceratops = new Enemies("Triceratops", 20, "To engage with this thing you may need a long sword ");
@@ -142,7 +163,7 @@ public class museum {
          if (currentRoom == portrait && userResponse.equals("STEAL GIRL WITH A PEARL EARRING")) {
             if (!inventory.contains(house3))
                System.out.println(
-                     "The girl seems to be awaking. She says behind the frame, “I refuse to be taken off this wall until my other pearl earring is returned to me. Please find it in the Museum.” It looks like stealing a painting requires additional steps.");
+                     "The girl seems to be awaking. She says behind the frame, “I refuse to be taken off this wall until I am gifted a pearl pendant to match my earring. Please find it in the Museum.” It looks like stealing a painting requires additional steps.");
 
             else {
                System.out.println("Stealing from exhibit.....");
@@ -151,7 +172,7 @@ public class museum {
                      + " has been removed from your inventory and given to the Girl with a Pearl Earring");
                portraitList.remove(portrait1);
                inventory.add(portrait1);
-               System.out.println(portrait1.name + " has been added to your inventory");
+               System.out.println(portrait1.name + " has been successfully added to your inventory");
                profit += portrait1.value;
             }
          }
@@ -168,7 +189,7 @@ public class museum {
                      "The " + apothacary2.name + " have been removed from your inventory and given to Frida Kahlo");
                portraitList.remove(portrait2);
                inventory.add(portrait2);
-               System.out.println(portrait2.name + " has been added to your inventory");
+               System.out.println(portrait2.name + " has been successfully added to your inventory");
                profit += portrait2.value;
             }
          }
@@ -289,14 +310,89 @@ public class museum {
          }
 
          // ************************************************
-         // actions in scultputre exhibit will happen here
+         // actions in sculpture exhibit will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
          if (currentRoom == sculpture && userResponse.equals("LOOK AROUND")) {
-            System.out.println("Artifact list print out would go here");
+            System.out.println("Upon entering the " + sculpture.name + " you are met with cold marble stares. A few of the statues catch your eye: \n The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and ____. Examine them if you hope to learn more.");
 
             userResponse = userInput.nextLine().toUpperCase();
 
          }
+
+         // Sculpture Garden Examine
+         if (currentRoom == sculpture && userResponse.equals("EXAMINE LITTLE DANCER OF FOURTEEN YEARS") 
+            || userResponse.equals("EXAMINE LITTLE DANCER")) {
+            System.out.println(sculpture1.desc);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+         if (currentRoom == sculpture && userResponse.equals("EXAMINE PERSEUS WITH THE HEAD OF MEDUSA")
+            || userResponse.equals("EXAMINE PERSEUS")) {
+            System.out.println(sculpture2.desc);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+         if (currentRoom == sculpture && userResponse.equals("EXAMINE null")) {
+            System.out.println(sculpture3.desc);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+
+
+         // Sculpture Garden Steal
+         if (currentRoom == sculpture && userResponse.equals("STEAL LITTLE DANCER OF FOURTEEN YEARS") 
+            || userResponse.equals("STEAL LITTLE DANCER")) {
+            if (!inventory.contains(house1))
+               System.out.println(
+                  "The young dancer begins to move her bronze limbs and she says, “You must not remove me from this gallery until I can dance my final dance, but first I need music.” Where will you find music in the Museum?");
+
+            else {
+               System.out.println("Stealing from exhibit.....");
+               inventory.remove(house1);
+               System.out.println("The " + house1.name + " has been removed from your inventory and given to the Little Dancer of Fourteen Years.");
+               sculptureList.remove(sculpture1);
+               inventory.add(sculpture1);
+               System.out.println(sculpture1.name + " has been successfully added to your inventory");
+               profit += sculpture1.value;
+            }
+         }
+
+         if (currentRoom == sculpture && userResponse.equals("STEAL PERSEUS WITH THE HEAD OF MEDUSA")
+               || userResponse.equals("STEAL PERSEUS")) {
+            System.out.println("It looks like Perseus won't be stolen so he easily. He has a knife, and seems to be approaching to attack you. Do you have a weapon to fight back? ");
+            
+            if (inventory.contains(armor1) ) {
+               System.out.println("You have " + armor1.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
+               inventory.remove(armor1);
+               System.out.println("You have defeated Perseus with the Head of Medua. The " + armor1.name + "has been removed from your inventory.");
+               inventory.add(sculpture2);
+               System.out.println(sculpture2.name + " has been successfully added to your inventory");
+               profit += sculpture2.value; 
+            }
+            else if (inventory.contains(armor2)){
+               System.out.println("You have " + armor2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
+               inventory.remove(armor2);
+               System.out.println("You have defeated Perseus with the Head of Medua. The " + armor2.name + "has been removed from your inventory.");
+               inventory.add(sculpture2);
+               System.out.println(sculpture2.name + " has been successfully added to your inventory");
+               profit += sculpture2.value;
+            }
+            else if (inventory.contains(armor3)){
+               System.out.println("You have " + armor3.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
+               inventory.remove(armor3);
+               System.out.println("You have defeated Perseus with the Head of Medua. The " + armor3.name + "has been removed from your inventory.");
+               inventory.add(sculpture2);
+               System.out.println(sculpture2.name + " has been successfully added to your inventory");
+               profit += sculpture2.value;
+            }
+            else {
+               System.out.println("Uh-oh! It looks like you have no way to defend yoursel");
+               System.out.println("Game Over!");
+               stillPlaying = false;  
+            }
+         }
+         
+
+
          if (currentRoom == sculpture && userResponse.equals("GO NORTH")) {
             System.out.println("\nYou are now going north! Heading towards the " + apothacary);
             currentRoom = apothacary;
