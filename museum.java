@@ -49,10 +49,18 @@ public class museum {
 
       // addition of artifacts to apothacary
       ArrayList<Artifact> apothacaryList = new ArrayList<>();
-      // changed it so that pearl earring resides in the historic house instead
-      // becuase it makes little more sense narratively
-      Artifact apothacary2 = new Artifact("Old Scissors", "Add later", 5);
+      Artifact apothacary1 = new Artifact("Golden Herb Scissors", 
+            "A jar of tools sits on the counter, inside it, a glistening pair of herb scissors stands out to you.", 
+            10);
+      Artifact apothacary2 = new Artifact("Jar of Medicine", 
+            "One small cabinent on the far left side of the counter catches your eye. You open the door and inside is a jar filled with a purple liquid and specks of herbs", 
+            10);
+      Artifact apothacary3 = new Artifact("Mortar and Pestle", 
+            "On the center of the counter sits a mortar and pestle, surrounded by containers of unground herbs", 
+            10);
+      apothacaryList.add(apothacary1);
       apothacaryList.add(apothacary2);
+      apothacaryList.add(apothacary3);
 
       // addition of artifacts to house
       ArrayList<Artifact> houseList = new ArrayList<>();
@@ -226,8 +234,31 @@ public class museum {
          if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")) {
             // System.out.println("Artifact list print out would go here");
             userResponse = userInput.nextLine().toUpperCase();
-
          }
+            
+   
+         // Old Apothacary Exhibit Examine
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE GOLDEN HERB SCISSORS")
+            || userResponse.equals("EXAMINE GOLDEN SCISSORS")
+            || userResponse.equals("EXAMINE HERB SCISSORS")
+            || userResponse.equals("EXAMINE SCISSORS")) {
+            System.out.println(apothacary1.desc);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+   
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE JAR OF MEDICINE")
+            || userResponse.equals("EXAMINE JAR")
+            || userResponse.equals("EXAMINE MEDICINE")) {
+            System.out.println(apothacary2.desc);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+   
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE MORTAR AND PESTLE")) {
+            System.out.println(apothacary3.desc);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
+         
+
          if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going back west! Heading towards the " + portrait);
             currentRoom = portrait;
