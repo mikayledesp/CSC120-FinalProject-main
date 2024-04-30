@@ -13,7 +13,7 @@ public class museum {
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
    public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
-   public static Room Animal = new Room("Animal Exhibit",
+   public static Room animal = new Room("Animal Exhibit",
          " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
    public museum() {
