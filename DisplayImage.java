@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
     public void paint(Graphics g) {
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("Museuem.png");
+        Image i = t.getImage("Museum.png");
         g.drawImage(i,0,0,this);
     }
 
@@ -13,8 +13,9 @@ import javax.swing.JFrame;
         DisplayImage img = new DisplayImage();
         JFrame f = new JFrame();
         f.add(img);
-        f.setSize(384,480);
+        f.setSize(494,580);
         f.setVisible(true);
+        
     }
 
 }

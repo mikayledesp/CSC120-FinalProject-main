@@ -13,8 +13,7 @@ public class museum {
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
    public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
-   public static Room Animal = new Room("Animal Exhibit",
-         " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
+   public static Room animal = new Room("Animal Exhibit"," This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
    public museum() {
 
@@ -121,7 +120,7 @@ public class museum {
       Room.showOptions();
 
       System.out.println("HINT: You may want to look around each room and examine each items before you steal them!");
-      System.out.println("\nType Enter To START");
+      System.out.println("\nType ENTER To Start");
 
       // The do...while structure means we execute the body of the loop once before
       // checking the stopping condition
@@ -202,22 +201,22 @@ public class museum {
          if (currentRoom == portrait && userResponse.equals("GO EAST")) {
             System.out.println("You are now going East! Heading towards the " + apothacary);
             currentRoom = apothacary;
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          if (currentRoom == portrait && userResponse.equals("GO NORTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
          if (currentRoom == portrait && userResponse.equals("GO SOUTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
 
-            userResponse = userInput.nextLine().toUpperCase();
+        
          }
          if (currentRoom == portrait && userResponse.equals("GO WEST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
 
-            userResponse = userInput.nextLine().toUpperCase();
+           
          }
 
          // ************************************************
@@ -225,29 +224,29 @@ public class museum {
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
          if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")) {
             // System.out.println("Artifact list print out would go here");
-            userResponse = userInput.nextLine().toUpperCase();
+           
 
          }
          if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going back west! Heading towards the " + portrait);
             currentRoom = portrait;
-
+            
          }
          if (currentRoom == apothacary && userResponse.equals("GO SOUTH")) {
             System.out.println("\nYou are now going south! Heading towards the " + sculpture);
             currentRoom = sculpture;
-
+           
          }
 
          if (currentRoom == apothacary && userResponse.equals("GO EAST")) {
             System.out.println("\nYou are now going east! Heading towards the " + historic);
             currentRoom = historic;
-
+          
          }
 
          if (currentRoom == apothacary && userResponse.equals("GO NORTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
 
@@ -259,7 +258,7 @@ public class museum {
             System.out.println(
                   " As you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace.");
 
-            userResponse = userInput.nextLine().toUpperCase();
+            
 
          }
          if (currentRoom == historic && userResponse.equals("EXAMINE SONY WALKMAN")
@@ -314,12 +313,12 @@ public class museum {
 
          if (currentRoom == historic && userResponse.equals("GO NORTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
-            userResponse = userInput.nextLine().toUpperCase();
+           
          }
 
          if (currentRoom == historic && userResponse.equals("GO EAST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          // ************************************************
