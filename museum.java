@@ -13,7 +13,8 @@ public class museum {
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
    public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
-   public static Room animal = new Room("Animal Exhibit"," This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
+   public static Room Animal = new Room("Animal Exhibit",
+         " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
    public museum() {
 
@@ -48,10 +49,18 @@ public class museum {
 
       // addition of artifacts to apothacary
       ArrayList<Artifact> apothacaryList = new ArrayList<>();
-      // changed it so that pearl earring resides in the historic house instead
-      // becuase it makes little more sense narratively
-      Artifact apothacary2 = new Artifact("Old Scissors", "Add later", 5);
+      Artifact apothacary1 = new Artifact("Golden Herb Scissors", 
+            "A jar of tools sits on the counter, inside it, a glistening pair of herb scissors stands out to you.", 
+            10);
+      Artifact apothacary2 = new Artifact("Jar of Poison", 
+            "One small cabinent on the far left side of the counter catches your eye. You open the door and inside is a jar filled with a purple liquid and specks of herbs", 
+            10);
+      Artifact apothacary3 = new Artifact("Mortar and Pestle", 
+            "On the center of the counter sits a mortar and pestle, surrounded by containers of unground herbs", 
+            10);
+      apothacaryList.add(apothacary1);
       apothacaryList.add(apothacary2);
+      apothacaryList.add(apothacary3);
 
       // addition of artifacts to house
       ArrayList<Artifact> houseList = new ArrayList<>();
@@ -84,7 +93,7 @@ public class museum {
       Artifact sculpture2 = new Artifact("Perseus with the Head of Medusa", 
             "An 1804-06 marble statue by Antonio Canova, reflecting his admiration of the art of antiquity and the ancient masters. It depicts Perseus gazing upon Medusa’s severed head", 
             30); 
-      Artifact sculpture3 = new Artifact(null, null, profit); 
+      Artifact sculpture3 = new Artifact("The Thinker", "A bronze sculpture created by Auguste Rodin. The original was conceived in 1880 and represented Dante, the author of the Divine Comedy, as he leans forward and observes the circles of Hell, whilst meditating on his poem.  The version here today is the more popular and enlarged version which represents a man deep in thought.", 30 ); 
       sculptureList.add(sculpture1);
       sculptureList.add(sculpture2);
       sculptureList.add(sculpture3);
@@ -224,7 +233,7 @@ public class museum {
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
          if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")) {
             // System.out.println("Artifact list print out would go here");
-           
+            userResponse = userInput.nextLine().toUpperCase();
 
          }
          if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
@@ -344,7 +353,8 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
          }
 
-         if (currentRoom == sculpture && userResponse.equals("EXAMINE null")) {
+         if (currentRoom == sculpture && userResponse.equals("EXAMINE THE THINKER")
+            || userResponse.equals("EXAMINE THINKER")) {
             System.out.println(sculpture3.desc);
             userResponse = userInput.nextLine().toUpperCase();
          }
@@ -396,11 +406,28 @@ public class museum {
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
             }
+            else if (inventory.contains(apothacary2)){
+               System.out.println("You have a " + apothacary2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
+               inventory.remove(apothacary2);
+               System.out.println("You have defeated Perseus with the Head of Medua. The " + apothacary2.name + "has been removed from your inventory.");
+               inventory.add(sculpture2);
+               System.out.println(sculpture2.name + " has been successfully added to your inventory");
+               profit += sculpture2.value;
+            }
             else {
                System.out.println("Uh-oh! It looks like you have no way to defend yoursel");
                System.out.println("Game Over!");
                stillPlaying = false;  
             }
+         }
+
+         if (currentRoom == sculpture && userResponse.equals("STEAL THE THINKER")
+            || userResponse.equals("STEAL THINKER")) {
+            System.out.println("Smart thinking! Stealing The Thinker...");
+            sculptureList.remove(sculpture3);
+            inventory.add(sculpture3);
+            System.out.println(sculpture3.name + " has been successfully added to inventory");
+            profit += sculpture3.value;
          }
          
 
