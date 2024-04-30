@@ -8,13 +8,12 @@ public class museum {
    public static int profit;
 
    // addition of rooms in musuem
-   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history", 0);
-   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets", 2);
-   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
-   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
-   public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
-   public static Room animal = new Room("Animal Exhibit",
-         " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
+   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history","Upon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye: The Mona Lisa, The Girl With A Pearl Earring and The Self-Portrait With Cropped Hair. Examine them if you hope to learn more." , 1);
+   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets","Upon entering....", 2);
+   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!", "As you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace. Examine them if you hope to learn more.",2);
+   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.","Upon entering the Sculpture Garden you are met with cold marble stares. A few of the statues catch your eye: \n The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and The Thinker. Examine them if you hope to learn more.", 2);
+   public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ","Upon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin. Examine them if you hope to learn more",3);
+   public static Room animal = new Room("Animal Exhibit"," This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ","\\n" +  " The source of that roar? A live Triceratops!!! \\n" +  " Specify the weapon you will use to attack!", 1);
 
    public museum() {
 
@@ -102,10 +101,7 @@ public class museum {
       // note : the apothacary items should proabably be added to the inventory once
       // user has entered room
       ArrayList<Artifact> inventory = new ArrayList<>();
-      // inventory.add(apothacary1);
-      // inventory.add(apothacary2);
-      // inventory.add(house1);
-      // inventory.add(armor1);
+      
 
       // Enemies for different rooms are constructed bellow ↓
       Enemies Triceratops = new Enemies("Triceratops", 20, "To engage with this thing you may need a long sword ");
@@ -131,8 +127,6 @@ public class museum {
       System.out.println("HINT: You may want to look around each room and examine each items before you steal them!");
       System.out.println("\nType ENTER To Start");
 
-      // The do...while structure means we execute the body of the loop once before
-      // checking the stopping condition
       do {
          // ************************************************
          // The stuff that happens in your game will go here
@@ -142,26 +136,21 @@ public class museum {
             System.out.println("\nYou have now entered the  " + portrait);
             currentRoom = portrait;
          }
-         if (currentRoom == portrait && userResponse.equals("LOOK AROUND")) {
-            System.out.println(
-                  "Upon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye:\n Girl With a Pearl Earring, The Mona Lisa and a Self-Portrait with Cropped Hair. Maybe I should examine them to get a closer look... ");
-            userResponse = userInput.nextLine().toUpperCase();
-         }
 
          // Portrait Gallery Examine
          if (currentRoom == portrait && userResponse.equals("EXAMINE GIRL WITH A PEARL EARRING")) {
             System.out.println(portrait1.desc);
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
-         if (currentRoom == portrait && userResponse.equals("EXAMINE SELF-PORTRAIT WITH CROPPED HAIR")) {
+         if (currentRoom == portrait && userResponse.equals("EXAMINE SELF-PORTRAIT WITH CROPPED HAIR") || currentRoom == portrait && userResponse.equals("EXAMINE SELF-PORTRAIT ")) {
             System.out.println(portrait2.desc);
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
-         if (currentRoom == portrait && userResponse.equals("EXAMINE MONA LISA")) {
+         if (currentRoom == portrait && userResponse.equals("examine mona lisa")) {
             System.out.println(portrait3.desc);
-            userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          // Portrait Gallery Steal
@@ -185,8 +174,7 @@ public class museum {
          if (currentRoom == portrait && userResponse.equals("STEAL SELF-PORTRAIT WITH CROPPED HAIR")
                || userResponse.equals("STEAL SELF-PORTRAIT")) {
             if (!inventory.contains(apothacary2))
-               System.out.println(
-                     "Frida Kahlo’s eyes seem to start blinking at you and her painted portrait opens its mouth, “You cannot take me off the wall until you deliver me a pair of scissors, I need to cut my hair.” It looks like you must keep searching around the museum if you want to steal this painting.");
+               System.out.println("Frida Kahlo’s eyes seem to start blinking at you and her painted portrait opens its mouth, “You cannot take me off the wall until you deliver me a pair of scissors, I need to cut my hair.” It looks like you must keep searching around the museum if you want to steal this painting.");
             else {
                System.out.println("Stealing from exhibit...");
                inventory.remove(apothacary2);
@@ -211,24 +199,24 @@ public class museum {
             System.out.println("You are now going East! Heading towards the " + apothacary);
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
+           
             
          }
 
          if (currentRoom == portrait && userResponse.equals("GO NORTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = portrait;
-            userResponse = userInput.nextLine().toUpperCase();
+            
             
          }
          if (currentRoom == portrait && userResponse.equals("GO SOUTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = portrait;
-            userResponse = userInput.nextLine().toUpperCase();
+           
 
-        
          }
          if (currentRoom == portrait && userResponse.equals("GO WEST")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = portrait;
             userResponse = userInput.nextLine().toUpperCase();
            
@@ -237,10 +225,21 @@ public class museum {
          // ************************************************
          // actions in apothacary will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
-         if (currentRoom == apothacary && userResponse.equals("LOOK AROUND")) {
-            // System.out.println("Artifact list print out would go here");
-            userResponse = userInput.nextLine().toUpperCase();
 
+         // Old Apothacary Exhibit Examine
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE GOLDEN HERB SCISSORS")|| userResponse.equals("EXAMINE GOLDEN SCISSORS")|| userResponse.equals("EXAMINE HERB SCISSORS")|| userResponse.equals("EXAMINE SCISSORS")) {
+            System.out.println(apothacary1.desc);
+           
+         }
+
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE JAR OF MEDICINE")|| userResponse.equals("EXAMINE JAR")|| userResponse.equals("EXAMINE MEDICINE")) {
+            System.out.println(apothacary2.desc);
+            
+         }
+
+         if (currentRoom == apothacary && userResponse.equals("EXAMINE MORTAR AND PESTLE")) {
+            System.out.println(apothacary3.desc);
+            
          }
          if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going back west! Heading towards the " + portrait);
@@ -249,6 +248,38 @@ public class museum {
 
             
          }
+         // Old Apothacary Steal 
+         //Old Apothacary Exibit Steal
+         if (currentRoom == apothacary && userResponse.equals("STEAL GOLDEN HERB SCISSORS")
+               || userResponse.equals("STEAL GOLDEN SCISSORS")
+               || userResponse.equals("STEAL HERB SCISSORS")
+               || userResponse.equals("STEAL SCISSORS")) {
+            apothacaryList.remove(apothacary1);
+            inventory.add(apothacary1);
+            System.out.println("Stealing Golden Herb Scissors...");
+            profit += apothacary1.value;
+         }
+
+         if (currentRoom == apothacary && userResponse.equals("STEAL JAR OF POISON")
+               || userResponse.equals("STEAL JAR")
+               || userResponse.equals("STEAL POISON")) {
+            apothacaryList.remove(apothacary2);
+            inventory.add(apothacary2);
+            System.out.println("Stealing Jar of Poison...");
+            profit += apothacary2.value;
+         }
+
+         if (currentRoom == apothacary && userResponse.equals("STEAL MORTAR AND PESTLE")) {
+            apothacaryList.remove(apothacary3);
+            inventory.add(apothacary3);
+            System.out.println("Stealing Mortar and Pestle...");
+            profit += apothacary3.value;
+         }
+
+
+        
+       
+      
          if (currentRoom == apothacary && userResponse.equals("GO SOUTH")) {
             System.out.println("\nYou are now going south! Heading towards the " + sculpture);
             currentRoom = sculpture;
@@ -266,9 +297,9 @@ public class museum {
          }
 
          if (currentRoom == apothacary && userResponse.equals("GO NORTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = apothacary;
-            userResponse = userInput.nextLine().toUpperCase();
+            
 
             
          }
@@ -278,13 +309,7 @@ public class museum {
          // actions in historic house will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
 
-         if (currentRoom == historic && userResponse.equals("LOOK AROUND")) {
-            System.out.println(
-                  " As you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace.");
-
-            
-
-         }
+         // Historic House Examine and Steal statements 
          if (currentRoom == historic && userResponse.equals("EXAMINE SONY WALKMAN")
                || userResponse.equals("EXAMINE WALKMAN")) {
             System.out.println(house1.desc);
@@ -323,7 +348,7 @@ public class museum {
             System.out.println("Stealing pearl pendant...");
             profit += house3.value;
          }
-
+         // Old House Directions 
          if (currentRoom == historic && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going west! Heading back towards the " + apothacary);
             currentRoom = apothacary;
@@ -340,17 +365,17 @@ public class museum {
          }
 
          if (currentRoom == historic && userResponse.equals("GO NORTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = historic;
-            userResponse = userInput.nextLine().toUpperCase();
+            
 
            
          }
 
          if (currentRoom == historic && userResponse.equals("GO EAST")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = historic;
-            userResponse = userInput.nextLine().toUpperCase();
+            
 
             
          }
@@ -358,10 +383,6 @@ public class museum {
          // ************************************************
          // actions in sculpture exhibit will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
-         if (currentRoom == sculpture && userResponse.equals("LOOK AROUND")) {
-            System.out.println("Upon entering the " + sculpture.name + " you are met with cold marble stares. A few of the statues catch your eye: \n The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and ____. Examine them if you hope to learn more.");
-
-         }
 
          // Sculpture Garden Examine
          if (currentRoom == sculpture && userResponse.equals("EXAMINE LITTLE DANCER OF FOURTEEN YEARS") 
@@ -454,7 +475,7 @@ public class museum {
          }
          
 
-
+         // Sculpture Garden Direction
          if (currentRoom == sculpture && userResponse.equals("GO NORTH")) {
             System.out.println("\nYou are now going north! Heading towards the " + apothacary);
             currentRoom = apothacary;
@@ -468,27 +489,23 @@ public class museum {
          }
 
          if (currentRoom == sculpture && userResponse.equals("GO SOUTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = sculpture;
-            userResponse = userInput.nextLine().toUpperCase();
+            
             
          }
 
          if (currentRoom == sculpture && userResponse.equals("GO WEST")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = sculpture;
-            userResponse = userInput.nextLine().toUpperCase();
+            
             
          }
 
          // ************************************************
          // actions in armor exhibit will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
-         if (currentRoom == armor && userResponse.equals("LOOK AROUND")) {
-            System.out.println(
-                  "Upon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin  ");
-            userResponse = userInput.nextLine().toUpperCase();
-         }
+         // Armory Examine and Steal Statements
          if (currentRoom == armor && userResponse.equals("EXAMINE SWORD")
                || currentRoom == armor && userResponse.equals("EXAMINE SWORD WITH A LAPIS LAZULI ENCRUSTED HILT")) {
             System.out.println(armor1.desc);
@@ -532,6 +549,7 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
 
          }
+         // Armory directions
          if (currentRoom == armor && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going west! Heading back towards the " + sculpture);
             currentRoom = sculpture;
@@ -542,14 +560,14 @@ public class museum {
          if (currentRoom == armor && userResponse.equals("GO SOUTH")) {
             System.out.println("\n You have now entered the Hall or Animals, as you turn to your left you hear a load roar that vibrates through the room.");
             currentRoom = animal;
-            userResponse = userInput.nextLine().toUpperCase();
+            
 
          }
 
          if (currentRoom == armor && userResponse.equals("GO NORTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = armor;
-            userResponse = userInput.nextLine().toUpperCase();
+           
          }
 
          // ************************************************
@@ -569,25 +587,25 @@ public class museum {
          }
 
          if (currentRoom == animal && userResponse.equals("GO SOUTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = animal;
-            userResponse = userInput.nextLine().toUpperCase();
+            
    
             
 
          }
 
          if (currentRoom == animal && userResponse.equals("GO EAST")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = animal;
-            userResponse = userInput.nextLine().toUpperCase();
+            
             
          }
 
          if (currentRoom == animal && userResponse.equals("GO WEST")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             currentRoom = animal;
-            userResponse = userInput.nextLine().toUpperCase();
+            
             
          }
 
@@ -634,11 +652,15 @@ public class museum {
             }
 
          }
-         if (profit >= 200){
+         if (profit >= 200 && userResponse.equals("EXIT")){
             System.out.println("You've collected over 200 points, in order to keep you riches you must exit the museuem");
          }
 
          // strings that work across all rooms
+         if(userResponse.equals("LOOK AROUND")){
+            System.out.println(currentRoom.look);
+            userResponse = userInput.nextLine().toUpperCase();
+         }
          if (userResponse.equals("WHAT ROOM AM I IN")) {
             System.out.println(currentRoom);
          }
