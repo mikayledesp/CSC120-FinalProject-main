@@ -35,6 +35,13 @@ public Room (String name, String desc, String look, int roomChoices){
   System.out.println(" + steal ___\n + drop __\n + look around\n + examine ___\n + check profit\n + attack\n + (1) go north\n + (2) go south\n + (3) go east\n + (4) go west\n + exit");
 
  } 
+/**
+ * Method only prints out possible directions for use after every input in game loop
+ */
+ public static void showDirections(){{
+  System.out.println("\nTo Move to another exhibit type in either: ");
+  System.out.println(" 1) north, 2) south, 3) east, 4) west\n");
+ }}
 
 
 
