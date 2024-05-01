@@ -1,22 +1,14 @@
 import java.awt.*;
-import javax.swing.JFrame;
+import javax.swing.*;
 
-    public class DisplayImage extends Canvas {
-
-    public void paint(Graphics g) {
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("Museum.png");
-        g.drawImage(i,0,0,this);
-    }
-
-    public static void main(String[] args) {
-        DisplayImage img = new DisplayImage();
-        JFrame f = new JFrame();
-        f.add(img);
-        f.setSize(494,580);
-        f.setVisible(true);
-        
-    }
+    public class DisplayImage extends JFrame {
+    
+        DisplayImage(){
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setSize(500,500);
+            this.setLocationRelativeTo(null);
+            this.setVisible(true);
+        }
 
 }
 

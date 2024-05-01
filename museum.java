@@ -202,7 +202,7 @@ public class museum {
          }
 
          if (currentRoom == portrait && userResponse.equals("GO EAST") ||  currentRoom == portrait && userResponse.equals("3")) {
-            System.out.println("You are now going East! Heading towards the " + apothacary);
+            System.out.println("You are now going East! Heading towards the " + apothacary + apothacary.look);
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
            
@@ -282,7 +282,7 @@ public class museum {
     
       
          if (currentRoom == apothacary && userResponse.equals("GO SOUTH")|| currentRoom == apothacary && userResponse.equals("2")) {
-            System.out.println("\nYou are now going south! Heading towards the " + sculpture);
+            System.out.println("\nYou are now going south! Heading towards the " + sculpture + sculpture.look);
             currentRoom = sculpture;
             userResponse = userInput.nextLine().toUpperCase();
 
@@ -290,7 +290,7 @@ public class museum {
          }
 
          if (currentRoom == apothacary && userResponse.equals("GO EAST")|| currentRoom == apothacary && userResponse.equals("3")) {
-            System.out.println("\nYou are now going east! Heading towards the " + historic);
+            System.out.println("\nYou are now going east! Heading towards the " + historic + historic.look);
             currentRoom = historic;
             userResponse = userInput.nextLine().toUpperCase();
 
@@ -306,7 +306,7 @@ public class museum {
             
          }
          if (currentRoom == apothacary && userResponse.equals("GO WEST")|| currentRoom == apothacary && userResponse.equals("4")) {
-            System.out.println("\nYou are now going back west! Heading towards the " + portrait);
+            System.out.println("\nYou are now going back west! Heading towards the " + portrait + portrait.look);
             currentRoom = portrait;
             userResponse = userInput.nextLine().toUpperCase();
 
@@ -363,13 +363,13 @@ public class museum {
          }
          // Old House Directions 
          if (currentRoom == historic && userResponse.equals("GO WEST")|| currentRoom == historic && userResponse.equals("4")) {
-            System.out.println("\nYou are now going west! Heading back towards the " + apothacary);
+            System.out.println("\nYou are now going west! Heading back towards the " + apothacary + apothacary.look);
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
 
          }
          if (currentRoom == historic && userResponse.equals("GO SOUTH")|| currentRoom == historic && userResponse.equals("2")) {
-            System.out.println("\nYou are now going south! Heading towards the " + armor);
+            System.out.println("\nYou are now going south! Heading towards the " + armor + armor.look);
             currentRoom = armor;
             userResponse = userInput.nextLine().toUpperCase();
 
@@ -499,13 +499,13 @@ public class museum {
 
          // Sculpture Garden Direction
          if (currentRoom == sculpture && userResponse.equals("GO NORTH")|| currentRoom == sculpture && userResponse.equals("1")) {
-            System.out.println("\nYou are now going north! Heading towards the " + apothacary);
+            System.out.println("\nYou are now going north! Heading towards the " + apothacary + apothacary.look);
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
 
          }
          if (currentRoom == sculpture && userResponse.equals("GO EAST")|| currentRoom == sculpture && userResponse.equals("3")) {
-            System.out.println("\nYou are now going east! Heading towards the " + armor);
+            System.out.println("\nYou are now going east! Heading towards the " + armor + armor.look);
             currentRoom = armor;
             userResponse = userInput.nextLine().toUpperCase();
          }
@@ -570,14 +570,14 @@ public class museum {
             Room.showDirections();
          }
          if (currentRoom == armor && userResponse.equals("GO NORTH")|| currentRoom == armor && userResponse.equals("1")) {
-            System.out.println("\nYou are now going north! Heading back towards the " + historic);
+            System.out.println("\nYou are now going north! Heading back towards the " + historic + historic.look);
             currentRoom = historic;
             userResponse = userInput.nextLine().toUpperCase();
 
          }
          // Armory directions
          if (currentRoom == armor && userResponse.equals("GO WEST")|| currentRoom == armor && userResponse.equals("4")) {
-            System.out.println("\nYou are now going west! Heading back towards the " + sculpture);
+            System.out.println("\nYou are now going west! Heading back towards the " + sculpture + sculpture.look);
             currentRoom = sculpture;
             userResponse = userInput.nextLine().toUpperCase();
             
@@ -607,7 +607,7 @@ public class museum {
          }
 
          if (currentRoom == animal && userResponse.equals("GO NORTH")|| currentRoom == animal && userResponse.equals("1")) {
-            System.out.println("\nYou are now going north! Heading towards the " + armor);
+            System.out.println("\nYou are now going north! Heading towards the " + armor + armor.look);
             currentRoom = armor;
             userResponse = userInput.nextLine().toUpperCase();
 
@@ -682,6 +682,7 @@ public class museum {
             }
 
          }
+          // strings that work across all rooms
          if (profit >= 200 && userResponse.equals("EXIT")){
             System.out.println("You've collected over 200 points, in order to keep you riches you must exit the museuem");
          } else if (profit < 200 && userResponse.equals("EXIT")){
@@ -689,11 +690,6 @@ public class museum {
             stillPlaying = false;
          }
 
-         // strings that work across all rooms
-         if(userResponse.equals("LOOK AROUND")){
-            System.out.println(currentRoom.look);
-            
-         }
          if (userResponse.equals("WHAT ROOM AM I IN")) {
             System.out.println(currentRoom);
          }
@@ -727,5 +723,4 @@ public class museum {
       }
 
    }
-
 }
