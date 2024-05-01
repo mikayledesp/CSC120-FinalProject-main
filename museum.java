@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+
 import com.google.common.graph.*;
 
 public class museum {
@@ -705,14 +708,14 @@ public class museum {
          }
         
          // try to print out graphics of directory
-         // if (userResponse.equals("DIRECTORY")) {
-         //    DisplayImage.paint();
-         //    DisplayImage img = new DisplayImage();
-         //    JFrame f = new JFrame();
-         //    f.add(img);
-         //    f.setSize(384,480);
-         //    f.setVisible(true);
-         // }
+         if (userResponse.equals("MAP")) {
+           DisplayImage img = new DisplayImage();
+            JFrame f = new JFrame();
+            f.add(img);
+            f.setSize(2536,1666);
+            f.setVisible(true);
+
+         }
       } while (stillPlaying);
 
       // close scanner

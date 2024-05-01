@@ -1,14 +1,18 @@
 import java.awt.*;
 import javax.swing.*;
 
-    public class DisplayImage extends JFrame {
+    public class DisplayImage extends Canvas {
+    /**
+     * 
+     * 
+     */
+    public void paint(Graphics g) {
+        Toolkit t = Toolkit.getDefaultToolkit();
+        Image i = t.getImage("map2.gif");
+        g.drawImage(i,0,0,this);
+    }
+
     
-        DisplayImage(){
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setSize(500,500);
-            this.setLocationRelativeTo(null);
-            this.setVisible(true);
-        }
 
 }
 
