@@ -32,7 +32,7 @@ public Room (String name, String desc, int roomChoices){ //Removing String look 
   */
  public static void showOptions(){
   System.out.println(" Possible actions include: ");
-  System.out.println(" + steal ___\n + drop __\n  + examine ___\n + check profit\n + attack\n + (1) go north\n + (2) go south\n + (3) go east\n + (4) go west\n + exit");
+  System.out.println(" + steal ___\n + drop __\n  + examine ___\n + check profit\n + attack\n + (1) go north\n + (2) go south\n + (3) go east\n + (4) go west\n + map(prints map of exhibits!) \n + exit");
 
  } 
 /**
