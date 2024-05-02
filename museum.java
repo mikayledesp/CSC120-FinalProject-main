@@ -11,11 +11,11 @@ public class museum {
    public static int profit;
 
    // addition of rooms in musuem
-   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history\n","\nUpon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. \nA few paintings catch your eye: The Mona Lisa, Girl With A Pearl Earring and a Self-Portrait With Cropped Hair. Maybe I should examine them to get a closer look... " , 1);
-   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets\n","\nUpon entering the Old Apothacary, a pair of old Golden Herb Scissors, a Small Jar of Medicine, and a Mortar and Pestle, ", 2);
-   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!\n", "\nAs you head east, a small recreation of an A-frame house appears. \nUpon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace. Maybe I should examine them to get a closer look... ",2);
-   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.\n","\nUpon entering the Sculpture Garden you are met with cold marble stares. \n A few of the statues catch your eye: The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and The Thinker. Maybe I should examine them to get a closer look... ", 2);
-   public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. \n","\nUpon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin. Maybe I should examine them to get a closer look... ",3);
+   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history\n","\nUpon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. \nA few paintings catch your eye: The Mona Lisa, Girl With A Pearl Earring and a Self-Portrait With Cropped Hair. Maybe you should examine them to get a closer look... " , 1);
+   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets\n","\nUpon entering the Old Apothacary you see a pair of old Golden Herb Scissors, a Small Jar of Medicine, and a Mortar and Pestle.", 2);
+   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!\n", "\nAs you head east, a small recreation of an A-frame house appears. \nUpon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace. Maybe you should examine them to get a closer look... ",2);
+   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.\n","\nUpon entering the Sculpture Garden you are met with cold marble stares. \n A few of the statues catch your eye: The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and The Thinker. Maybe you should examine them to get a closer look... ", 2);
+   public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. \n","\nUpon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin. Maybe you should examine them to get a closer look... ",3);
    public static Room animal = new Room("Hall of Animals"," This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", " The source of that roar? A live Triceratops!!!\n  Specify the weapon you will use to attack!", 1);
 
    public museum() {
@@ -197,7 +197,7 @@ public class museum {
                   System.out.println("Stealing from exhibit...");
                   inventory.remove(apothacary2);
                   System.out.println(
-                        "The " + apothacary2.name + " have been removed from your inventory and given to Frida Kahlo");
+                        "The " + apothacary1.name + " have been removed from your inventory and given to Frida Kahlo");
                   portraitList.remove(portrait2);
                   inventory.add(portrait2);
                   System.out.println(portrait2.name + " has been successfully added to your inventory");
@@ -241,13 +241,13 @@ public class museum {
          }
 
          if (currentRoom == portrait && userResponse.equals("STEAL SELF-PORTRAIT WITH CROPPED HAIR")|| currentRoom == portrait &&  userResponse.equals("STEAL SELF-PORTRAIT")) {
-            if (!inventory.contains(apothacary2))
+            if (!inventory.contains(apothacary1))
                System.out.println("\nFrida Kahlo’s eyes seem to start blinking at you and her painted portrait opens its mouth, “You cannot take me off the wall until you deliver me a pair of scissors, I need to cut my hair.” It looks like you must keep searching around the museum if you want to steal this painting.");
             else {
                System.out.println("Stealing from exhibit...");
-               inventory.remove(apothacary2);
+               inventory.remove(apothacary1);
                System.out.println(
-                     "The " + apothacary2.name + " have been removed from your inventory and given to Frida Kahlo");
+                     "The " + apothacary1.name + " have been removed from your inventory and given to Frida Kahlo");
                portraitList.remove(portrait2);
                inventory.add(portrait2);
                System.out.println(portrait2.name + " has been successfully added to your inventory");
@@ -258,7 +258,7 @@ public class museum {
 
          if (currentRoom == portrait && userResponse.equals("STEAL MONA LISA")) {
             System.out.println("Stealing from exhibit.....");
-            System.out.println( "\nUh-oh Alarms sound! Did you really think you could steal the Mona Lisa? Don't overshoot your shot!e");
+            System.out.println( "\nUh-oh Alarms sound! Did you really think you could steal the Mona Lisa? Don't overshoot your shot!");
             System.out.println("Game Over!");
             stillPlaying = false;
          }
@@ -388,7 +388,7 @@ public class museum {
           
          }
 
-         if (currentRoom == apothacary && userResponse.equals("GO NORTH")) {
+         if (currentRoom == apothacary && userResponse.equals("GO NORTH")| currentRoom == apothacary && userResponse.equals("1")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
