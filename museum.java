@@ -315,7 +315,7 @@ public class museum {
 
          if (currentRoom == apothacary && userResponse.equals("GO WEST")|| currentRoom == apothacary && userResponse.equals("4")) {
             System.out.println("\nYou are now going west! Heading towards the " + portrait + portrait.look);
-            currentRoom = sculpture;
+            currentRoom = portrait;
             userResponse = userInput.nextLine().toUpperCase();
 
            
