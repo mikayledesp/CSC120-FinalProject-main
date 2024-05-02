@@ -210,21 +210,27 @@ public class museum {
          if (currentRoom == portrait && userResponse.equals("GO EAST")) {
             System.out.println("You are now going East! Heading towards the " + apothacary);
             currentRoom = apothacary;
+            userResponse = userInput.nextLine().toUpperCase();
             
          }
 
          if (currentRoom == portrait && userResponse.equals("GO NORTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = portrait;
+            userResponse = userInput.nextLine().toUpperCase();
             
          }
          if (currentRoom == portrait && userResponse.equals("GO SOUTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = portrait;
+            userResponse = userInput.nextLine().toUpperCase();
 
         
          }
          if (currentRoom == portrait && userResponse.equals("GO WEST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
-
+            currentRoom = portrait;
+            userResponse = userInput.nextLine().toUpperCase();
            
          }
 
@@ -239,22 +245,28 @@ public class museum {
          if (currentRoom == apothacary && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going back west! Heading towards the " + portrait);
             currentRoom = portrait;
+            userResponse = userInput.nextLine().toUpperCase();
+
             
          }
          if (currentRoom == apothacary && userResponse.equals("GO SOUTH")) {
             System.out.println("\nYou are now going south! Heading towards the " + sculpture);
             currentRoom = sculpture;
+            userResponse = userInput.nextLine().toUpperCase();
+
            
          }
 
          if (currentRoom == apothacary && userResponse.equals("GO EAST")) {
             System.out.println("\nYou are now going east! Heading towards the " + historic);
             currentRoom = historic;
+            userResponse = userInput.nextLine().toUpperCase();
+
           
          }
 
          if (currentRoom == apothacary && userResponse.equals("GO NORTH")) {
-            System.out.println("ERROR: you cannot go in this direction, please try another one! ");
+            System.out.println("ERROR: you cannot go in this direction, please try another one!");
             
          }
 
@@ -312,21 +324,31 @@ public class museum {
          if (currentRoom == historic && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going west! Heading back towards the " + apothacary);
             currentRoom = apothacary;
+            userResponse = userInput.nextLine().toUpperCase();
+
 
          }
          if (currentRoom == historic && userResponse.equals("GO SOUTH")) {
             System.out.println("\nYou are now going south! Heading towards the " + armor);
             currentRoom = armor;
+            userResponse = userInput.nextLine().toUpperCase();
+
 
          }
 
          if (currentRoom == historic && userResponse.equals("GO NORTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = historic;
+            userResponse = userInput.nextLine().toUpperCase();
+
            
          }
 
          if (currentRoom == historic && userResponse.equals("GO EAST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = historic;
+            userResponse = userInput.nextLine().toUpperCase();
+
             
          }
 
@@ -335,8 +357,6 @@ public class museum {
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
          if (currentRoom == sculpture && userResponse.equals("LOOK AROUND")) {
             System.out.println("Upon entering the " + sculpture.name + " you are met with cold marble stares. A few of the statues catch your eye: \n The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and ____. Examine them if you hope to learn more.");
-
-            userResponse = userInput.nextLine().toUpperCase();
 
          }
 
@@ -435,22 +455,27 @@ public class museum {
          if (currentRoom == sculpture && userResponse.equals("GO NORTH")) {
             System.out.println("\nYou are now going north! Heading towards the " + apothacary);
             currentRoom = apothacary;
+            userResponse = userInput.nextLine().toUpperCase();
 
          }
          if (currentRoom == sculpture && userResponse.equals("GO EAST")) {
             System.out.println("\nYou are now going east! Heading towards the " + armor);
             currentRoom = armor;
-
+            userResponse = userInput.nextLine().toUpperCase();
          }
 
          if (currentRoom == sculpture && userResponse.equals("GO SOUTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = sculpture;
             userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          if (currentRoom == sculpture && userResponse.equals("GO WEST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = sculpture;
             userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          // ************************************************
@@ -501,22 +526,26 @@ public class museum {
          if (currentRoom == armor && userResponse.equals("GO NORTH")) {
             System.out.println("\nYou are now going north! Heading back towards the " + historic);
             currentRoom = historic;
+            userResponse = userInput.nextLine().toUpperCase();
 
          }
          if (currentRoom == armor && userResponse.equals("GO WEST")) {
             System.out.println("\nYou are now going west! Heading back towards the " + sculpture);
             currentRoom = sculpture;
+            userResponse = userInput.nextLine().toUpperCase();
+            
 
          }
          if (currentRoom == armor && userResponse.equals("GO SOUTH")) {
-            System.out.println(
-                  "\n You have now entered the Hall or Animals, as you turn to your left you hear a load roar that vibrates through the room.");
+            System.out.println("\n You have now entered the Hall or Animals, as you turn to your left you hear a load roar that vibrates through the room.");
             currentRoom = animal;
+            userResponse = userInput.nextLine().toUpperCase();
 
          }
 
          if (currentRoom == armor && userResponse.equals("GO NORTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = armor;
             userResponse = userInput.nextLine().toUpperCase();
          }
 
@@ -524,8 +553,7 @@ public class museum {
          // actions in animal will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
          if (currentRoom == animal && userResponse.equals("LOOK AROUND")) {
-            System.out.println(
-                  "\n The source of that roar? A live Triceratops!!! \n Specify the weapon you will use to attack!");
+            System.out.println( "\n The source of that roar? A live Triceratops!!! \n Specify the weapon you will use to attack!");
             userResponse = userInput.nextLine().toUpperCase();
 
          }
@@ -533,23 +561,31 @@ public class museum {
          if (currentRoom == animal && userResponse.equals("GO NORTH")) {
             System.out.println("\nYou are now going north! Heading towards the " + armor);
             currentRoom = armor;
+            userResponse = userInput.nextLine().toUpperCase();
 
          }
 
          if (currentRoom == animal && userResponse.equals("GO SOUTH")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = animal;
             userResponse = userInput.nextLine().toUpperCase();
+   
+            
 
          }
 
          if (currentRoom == animal && userResponse.equals("GO EAST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = animal;
             userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          if (currentRoom == animal && userResponse.equals("GO WEST")) {
             System.out.println("ERROR: you cannot go in this direction, please try another one!");
+            currentRoom = animal;
             userResponse = userInput.nextLine().toUpperCase();
+            
          }
 
          if (currentRoom == animal && userResponse.equals("ATTACK WITH DAGGER")) {
@@ -595,6 +631,9 @@ public class museum {
             }
 
          }
+         if (profit >= 200){
+            System.out.println("You've collected over 200 points, in order to keep you riches you must exit the museuem");
+         }
 
          // strings that work across all rooms
          if (userResponse.equals("WHAT ROOM AM I IN")) {
@@ -608,7 +647,7 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
          }
          if (userResponse.equals("CHECK PROFIT")) {
-            System.out.println("$" + profit);
+            System.out.println( profit);
          }
          // try to print out graphics of directory
          // if (userResponse.equals("DIRECTORY")) {
