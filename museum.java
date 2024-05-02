@@ -8,8 +8,8 @@ public class museum {
    public static int profit;
 
    // addition of rooms in musuem
-   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history", 0);
-   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets", 2);
+   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history", 1);
+   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets", 3);
    public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
    public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
