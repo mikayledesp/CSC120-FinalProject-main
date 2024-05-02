@@ -16,10 +16,10 @@ public int roomChoices;
  * @param name
  * @param desc
  */
-public Room (String name, String desc, String look, int roomChoices){
+public Room (String name, String desc, int roomChoices){ //Removing String look to test 
   this.name = name;
   this.desc = desc;
-  this.look = look;
+  //this.look = look;
   this.roomChoices = roomChoices;
   this.portraitArtifacts = new ArrayList<Artifact> ();
 }

@@ -11,11 +11,11 @@ public class museum {
    public static int profit;
 
    // addition of rooms in musuem
-   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history", 0);
-   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets", 2);
-   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!",2);
-   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.", 2);
-   public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
+   public static Room portrait = new Room("Portrait Gallery", "This gallery houses portraits across all eras of art history.", 0);
+   public static Room apothacary = new Room("Old Apothacary Exhibit ", "This Old Apothacary is home to a variety of ancient potions and gadgets.", 2);
+   public static Room historic = new Room("Historical House", "This Historic House dates all the way back to 1970!",2);
+   public static Room sculpture = new Room("Sculpture Garden", "This Scultpure Garden has very life like pieces, some even too life like.", 2);
+   public static Room armor = new Room("Armor and Weapons Gallery", "This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. ",3);
    public static Room animal = new Room("Animal Exhibit",
          " This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", 1);
 
@@ -52,13 +52,13 @@ public class museum {
 
       // addition of artifacts to apothacary
       ArrayList<Artifact> apothacaryList = new ArrayList<>();
-      Artifact apothacary1 = new Artifact("Golden Herb Scissors", 
+      Artifact apothacary1 = new Artifact("\nGolden Herb Scissors", 
             "A jar of tools sits on the counter, inside it, a glistening pair of herb scissors stands out to you.", 
             10);
-      Artifact apothacary2 = new Artifact("Jar of Poison", 
+      Artifact apothacary2 = new Artifact("\nJar of Poison", 
             "One small cabinent on the far left side of the counter catches your eye. You open the door and inside is a jar filled with a purple liquid and specks of herbs", 
             10);
-      Artifact apothacary3 = new Artifact("Mortar and Pestle", 
+      Artifact apothacary3 = new Artifact("\nMortar and Pestle", 
             "On the center of the counter sits a mortar and pestle, surrounded by containers of unground herbs", 
             10);
       apothacaryList.add(apothacary1);
@@ -90,13 +90,13 @@ public class museum {
 
       // addition of artifacts to sculpture 
       ArrayList<Artifact> sculptureList = new ArrayList<>();
-      Artifact sculpture1 = new Artifact("Little Dancer of Fourteen Years", 
+      Artifact sculpture1 = new Artifact("\nLittle Dancer of Fourteen Years", 
             "An 1880 bronze cast sculpture by Edgar Degas. The sculpture is dressed in a real bodice, tutu, and ballet slippers", 
             20); 
-      Artifact sculpture2 = new Artifact("Perseus with the Head of Medusa", 
+      Artifact sculpture2 = new Artifact("\nPerseus with the Head of Medusa", 
             "An 1804-06 marble statue by Antonio Canova, reflecting his admiration of the art of antiquity and the ancient masters. It depicts Perseus gazing upon Medusa’s severed head", 
             30); 
-      Artifact sculpture3 = new Artifact("The Thinker", "A bronze sculpture created by Auguste Rodin. The original was conceived in 1880 and represented Dante, the author of the Divine Comedy, as he leans forward and observes the circles of Hell, whilst meditating on his poem.  The version here today is the more popular and enlarged version which represents a man deep in thought.", 30 ); 
+      Artifact sculpture3 = new Artifact("\nThe Thinker", "A bronze sculpture created by Auguste Rodin. The original was conceived in 1880 and represented Dante, the author of the Divine Comedy, as he leans forward and observes the circles of Hell, whilst meditating on his poem.  The version here today is the more popular and enlarged version which represents a man deep in thought.", 30 ); 
       sculptureList.add(sculpture1);
       sculptureList.add(sculpture2);
       sculptureList.add(sculpture3);
@@ -142,6 +142,26 @@ public class museum {
             System.out.println("\nYou have now entered the  " + portrait +  portrait.look);
             currentRoom = portrait;
            
+         }
+
+         //Look Around 
+         if (userResponse.equals("LOOK AROUND")){
+            System.out.println(currentRoom.desc);
+               if (currentRoom == portrait){
+                  System.out.println("A few specfific artifacts catch your eye: " + portrait1.name + portrait2.name + portrait3.name);
+               }
+               if (currentRoom == apothacary){
+                  System.out.println("A few specfific artifacts catch your eye: " + apothacary1.name + apothacary2.name + apothacary3.name);
+               }
+               if (currentRoom == historic){
+                  System.out.println("A few specfific artifacts catch your eye: " + house1.name + house2.name + house3.name);
+               }
+               if (currentRoom == armor){
+                  System.out.println("A few specfific artifacts catch your eye: " + armor1.name + armor2.name + armor3.name);
+               }
+               if (currentRoom == sculpture){
+                  System.out.println("A few specfific artifacts catch your eye: " + sculpture1.name + sculpture2.name + sculpture3.name);
+               }
          }
 
          // Portrait Gallery Examine
