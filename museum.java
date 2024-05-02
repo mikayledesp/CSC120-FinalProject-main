@@ -313,6 +313,14 @@ public class museum {
            
          }
 
+         if (currentRoom == apothacary && userResponse.equals("GO WEST")|| currentRoom == apothacary && userResponse.equals("4")) {
+            System.out.println("\nYou are now going west! Heading towards the " + portrait + portrait.look);
+            currentRoom = sculpture;
+            userResponse = userInput.nextLine().toUpperCase();
+
+           
+         }
+
          if (currentRoom == apothacary && userResponse.equals("GO EAST")|| currentRoom == apothacary && userResponse.equals("3")) {
             System.out.println("\nYou are now going east! Heading towards the " + historic + historic.look);
             currentRoom = historic;
@@ -362,14 +370,14 @@ public class museum {
             profit += house2.value;
             Room.showDirections();
          }
-         if (currentRoom == historic && userResponse.equals("EXAMINE PEARL PENDANT")
-               || userResponse.equals("EXAMINE PEARL PENDANT TIFFANY & CO NECKLACE")
+         if (currentRoom == historic && userResponse.equals("EXAMINE PEARL")
+               || userResponse.equals("EXAMINE PEARL TIFFANY & CO NECKLACE")
                || userResponse.equals("EXAMINE NECKLACE")) {
             System.out.println(house3.desc);
             Room.showDirections();
          }
-         if (currentRoom == historic && userResponse.equals("STEAL PEARL PENDANT")
-               || userResponse.equals("STEAL PEARL PENDANT TIFFANY & CO NECKLACE")
+         if (currentRoom == historic && userResponse.equals("STEAL PEARL")
+               || userResponse.equals("STEAL PEARL TIFFANY & CO NECKLACE")
                || userResponse.equals("STEAL NECKLACE")) {
             houseList.remove(house3);
             inventory.add(house3);
