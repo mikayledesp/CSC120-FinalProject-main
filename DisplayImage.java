@@ -1,22 +1,18 @@
 import java.awt.*;
-import javax.swing.JFrame;
+import javax.swing.*;
 
     public class DisplayImage extends Canvas {
-
+    /**
+     * 
+     * 
+     */
     public void paint(Graphics g) {
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("Museum.png");
+        Image i = t.getImage("map2.gif");
         g.drawImage(i,0,0,this);
     }
 
-    public static void main(String[] args) {
-        DisplayImage img = new DisplayImage();
-        JFrame f = new JFrame();
-        f.add(img);
-        f.setSize(494,580);
-        f.setVisible(true);
-        
-    }
+    
 
 }
 

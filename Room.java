@@ -7,6 +7,7 @@ public class Room {
  
 public String name;
 public String desc;
+public String look;
 public int roomChoices;
 
  public ArrayList<Artifact> portraitArtifacts; 
@@ -15,9 +16,10 @@ public int roomChoices;
  * @param name
  * @param desc
  */
-public Room (String name, String desc, int roomChoices){
+public Room (String name, String desc, String look, int roomChoices){
   this.name = name;
   this.desc = desc;
+  this.look = look;
   this.roomChoices = roomChoices;
   this.portraitArtifacts = new ArrayList<Artifact> ();
 }
@@ -30,9 +32,16 @@ public Room (String name, String desc, int roomChoices){
   */
  public static void showOptions(){
   System.out.println(" Possible actions include: ");
-  System.out.println(" + steal ___\n + drop __\n + look around\n + examine ___\n + check profit\n + attack\n + go north\n + go south\n + go east\n + go west\n");
+  System.out.println(" + steal ___\n + drop __\n  + examine ___\n + check profit\n + attack\n + (1) go north\n + (2) go south\n + (3) go east\n + (4) go west\n + exit");
 
  } 
+/**
+ * Method only prints out possible directions for use after every input in game loop
+ */
+ public static void showDirections(){{
+  System.out.println("\nTo Move to another exhibit type in either: ");
+  System.out.println(" 1) north, 2) south, 3) east, 4) west\n You can type 'map' in to see layout of all exhibits!");
+ }}
 
 
 
