@@ -11,10 +11,10 @@ public class museum {
    public static int profit;
 
    // addition of rooms in musuem
-   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history\n","\nUpon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. A few paintings catch your eye: The Mona Lisa, The Girl With A Pearl Earring and The Self-Portrait With Cropped Hair. Examine them if you hope to learn more." , 1);
-   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets\n","\nUpon entering the Old Apothacary, a pair of old Golden Herb Scissors, a Small Jar of Poisin and a Mortar and Pestle ", 2);
-   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!\n", "\nAs you head east, a small recreation of an A-frame house appears. Upon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace. Examine them if you hope to learn more.",2);
-   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.\n","\nUpon entering the Sculpture Garden you are met with cold marble stares. A few of the statues catch your eye: \n The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and The Thinker. Examine them if you hope to learn more.", 2);
+   public static Room portrait = new Room("Portrait Gallery"," This gallery houses portraits across all eras of art history\n","\nUpon entering the Portrait Gallery you are met with dozens of faces housed in gold frames. \nA few paintings catch your eye: The Mona Lisa, The Girl With A Pearl Earring and The Self-Portrait With Cropped Hair. Examine them if you hope to learn more." , 1);
+   public static Room apothacary = new Room("Old Apothacary Exhibit "," This Old Apothacary is home to a variety of ancient potions and gadgets\n","\nUpon entering the Old Apothacary, a pair of old Golden Herb Scissors, a Small Jar of Poison, and a Mortar and Pestle, ", 2);
+   public static Room historic = new Room("Historical House", " This Historic House dates all the way back to 1970!\n", "\nAs you head east, a small recreation of an A-frame house appears. \nUpon entering the house you are met with tons of vintage items from the 1970's including a Sony Walkman, a set of two Fine China Teacups and a Pearl Pendant Tiffany & Co Necklace. Examine them if you hope to learn more.",2);
+   public static Room sculpture = new Room("Sculpture Garden"," This Scultpure Garden has very life like pieces, some even too life like.\n","\nUpon entering the Sculpture Garden you are met with cold marble stares. \n A few of the statues catch your eye: The Little Dancer of Fourteen Years, Perseus with the Head of Medusa, and The Thinker. Examine them if you hope to learn more.", 2);
    public static Room armor = new Room("Armor and Weapons Gallery"," This exhibit hosts a multitude of medival swords and shields. It also has the finest chain mill in the west, this  armor that was essential for any battle. \n","\nUpon entering the dimily lit armory you see many swords and daggers hanging neatly from the walls! A few of them catch your eye: A Sword With a Lapus Encrusted Hilt, A curved Dagger with a Black Hilt and, a Golden Javelin. Examine them if you hope to learn more",3);
    public static Room animal = new Room("Animal Exhibit"," This exhibit is home to the largest T-Rex! It's skeleton towers 12 feet in the air! ", " The source of that roar? A live Triceratops!!!\n  Specify the weapon you will use to attack!", 1);
 
@@ -80,9 +80,9 @@ public class museum {
 
       // addition of artifacts to armor
       ArrayList<Artifact> armorList = new ArrayList<>();
-      Artifact armor1 = new Artifact("\nSword With a Lapis Lazuli Encrusted Hilt", null, 50);
-      Artifact armor2 = new Artifact("\nCurved Dagger with a Black Hilt", null, 20);
-      Artifact armor3 = new Artifact("\nGolden Javelin ", null, 10);
+      Artifact armor1 = new Artifact("\nSword With a Lapis Lazuli Encrusted Hilt", "The Long sword has a blue gem encrusted hilt and deals damage!", 50);
+      Artifact armor2 = new Artifact("\nCurved Dagger with a Black Hilt", "The curved dagger is a small but mighty weapon!", 20);
+      Artifact armor3 = new Artifact("\nGolden Javelin ", "The 8 foot javelin is heavy but effective. The real question is, do you have the strength to throw it", 10);
       armorList.add(armor1);
       armorList.add(armor2);
       armorList.add(armor3);
@@ -703,8 +703,8 @@ public class museum {
             Room.showOptions();
             
          }
-         if (userResponse.equals("CHECK PROFIT")) {
-            System.out.println( profit);
+         if (userResponse.equals("CHECK PROFIT") || userResponse.equals("PROFIT")) {
+            System.out.println( "You now have " + profit + " points!" );
          }
         
          // try to print out graphics of directory

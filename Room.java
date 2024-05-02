@@ -40,7 +40,7 @@ public Room (String name, String desc, String look, int roomChoices){
  */
  public static void showDirections(){{
   System.out.println("\nTo Move to another exhibit type in either: ");
-  System.out.println(" 1) north, 2) south, 3) east, 4) west\n");
+  System.out.println(" 1) north, 2) south, 3) east, 4) west\n You can type 'map' in to see layout of all exhibits!");
  }}
 
 
