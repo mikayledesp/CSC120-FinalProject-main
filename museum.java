@@ -161,7 +161,7 @@ public class museum {
                   inventory.add(portrait1);
                   System.out.println(portrait1.name + " has been successfully added to your inventory");
                   profit += portrait1.value;
-                  Room.showDirections();
+                  
                }
             }
             
@@ -182,7 +182,7 @@ public class museum {
                   inventory.add(portrait2);
                   System.out.println(portrait2.name + " has been successfully added to your inventory");
                   profit += portrait2.value;
-                  Room.showDirections();
+                  
                }
             }
             
@@ -190,7 +190,7 @@ public class museum {
             
          }
 
-         if (currentRoom == portrait && userResponse.equals("EXAMINE MONA LISA")) {
+         if (currentRoom == portrait && userResponse.equals("EXAMINE MONA LISA")|| currentRoom == portrait && userResponse.equals("EXAMINE THE MONA LISA")) {
             System.out.println(portrait3.desc);
             userResponse = userInput.nextLine().toUpperCase();
             if ( userResponse.equals("STEAL")) {
@@ -216,7 +216,7 @@ public class museum {
                inventory.add(portrait1);
                System.out.println(portrait1.name + " has been successfully added to your inventory");
                profit += portrait1.value;
-               Room.showDirections();
+               
             }
          }
 
@@ -232,7 +232,7 @@ public class museum {
                inventory.add(portrait2);
                System.out.println(portrait2.name + " has been successfully added to your inventory");
                profit += portrait2.value;
-               Room.showDirections();
+               
             }
          }
 
@@ -297,7 +297,7 @@ public class museum {
                inventory.add(apothacary2);
                System.out.println("\nStealing Jar of Medicine...");
                profit += apothacary2.value;
-               Room.showDirections();
+               
          }   
          }
 
@@ -309,7 +309,7 @@ public class museum {
                inventory.add(apothacary3);
                System.out.println("\nStealing Mortar and Pestle...");
                profit += apothacary3.value;
-               Room.showDirections();
+               
             }
          }
          //Old Apothacary Exibit Steal
@@ -321,7 +321,7 @@ public class museum {
             inventory.add(apothacary1);
             System.out.println("\nStealing Golden Herb Scissors...");
             profit += apothacary1.value;
-            Room.showDirections();
+            
          }
 
          if (currentRoom == apothacary && userResponse.equals("STEAL JAR OF MEDICINE")
@@ -331,7 +331,7 @@ public class museum {
             inventory.add(apothacary2);
             System.out.println("\nStealing Jar of Medicine...");
             profit += apothacary2.value;
-            Room.showDirections();
+            
          }
 
          if (currentRoom == apothacary && userResponse.equals("STEAL MORTAR AND PESTLE")) {
@@ -339,7 +339,7 @@ public class museum {
             inventory.add(apothacary3);
             System.out.println("\nStealing Mortar and Pestle...");
             profit += apothacary3.value;
-            Room.showDirections();
+            
          }
 
     
@@ -355,6 +355,13 @@ public class museum {
          if (currentRoom == apothacary && userResponse.equals("GO EAST")|| currentRoom == apothacary && userResponse.equals("3")) {
             System.out.println("\nYou are now going east! Heading towards the " + historic + historic.look);
             currentRoom = historic;
+            userResponse = userInput.nextLine().toUpperCase();
+
+          
+         }
+         if (currentRoom == apothacary && userResponse.equals("GO WEST")|| currentRoom == apothacary && userResponse.equals("4")) {
+            System.out.println("\nYou are now going west! Heading towards the " + portrait + portrait.look);
+            currentRoom = portrait;
             userResponse = userInput.nextLine().toUpperCase();
 
           
@@ -407,7 +414,7 @@ public class museum {
             inventory.add(house2);
             System.out.println("Stealing teacups...");
             profit += house2.value;
-            Room.showDirections();
+            
          }
          if (currentRoom == historic && userResponse.equals("EXAMINE PEARL PENDANT")
                || userResponse.equals("EXAMINE PEARL PENDANT TIFFANY & CO NECKLACE")
@@ -422,7 +429,7 @@ public class museum {
             inventory.add(house3);
             System.out.println("Stealing pearl pendant...");
             profit += house3.value;
-            Room.showDirections();
+            
          }
          // Old House Directions 
          if (currentRoom == historic && userResponse.equals("GO WEST")|| currentRoom == historic && userResponse.equals("4")) {
@@ -479,7 +486,7 @@ public class museum {
                inventory.add(sculpture1);
                System.out.println(sculpture1.name + " has been successfully added to your inventory");
                profit += sculpture1.value;
-               Room.showDirections();
+               
             }
             
          }
@@ -499,7 +506,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value; 
-               Room.showDirections();
+               
             }
             else if (inventory.contains(armor2)){
                System.out.println("You have " + armor2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
@@ -508,7 +515,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
-               Room.showDirections();
+               
             }
             else if (inventory.contains(armor3)){
                System.out.println("You have " + armor3.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
@@ -517,7 +524,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
-               Room.showDirections();
+               
             }
             else if (inventory.contains(apothacary2)){
                System.out.println("You have a " + apothacary2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
@@ -526,7 +533,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
-               Room.showDirections();
+               
             }
             else {
                System.out.println("Uh-oh! It looks like you have no way to defend yourself");
@@ -548,7 +555,7 @@ public class museum {
             inventory.add(sculpture3);
             System.out.println(sculpture3.name + " has been successfully added to inventory");
             profit += sculpture3.value;
-            Room.showDirections();
+            
          }
          }
 
@@ -568,7 +575,7 @@ public class museum {
                inventory.add(sculpture1);
                System.out.println(sculpture1.name + " has been successfully added to your inventory");
                profit += sculpture1.value;
-               Room.showDirections();
+               
             }
             
          }
@@ -584,7 +591,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value; 
-               Room.showDirections();
+               
             }
             else if (inventory.contains(armor2)){
                System.out.println("You have " + armor2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
@@ -593,7 +600,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
-               Room.showDirections();
+              
             }
             else if (inventory.contains(armor3)){
                System.out.println("You have " + armor3.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
@@ -602,7 +609,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
-               Room.showDirections();
+               
             }
             else if (inventory.contains(apothacary2)){
                System.out.println("You have a " + apothacary2.name + "in your inventory. You must use it to fight Perseus, otherwise you will die.");
@@ -611,7 +618,7 @@ public class museum {
                inventory.add(sculpture2);
                System.out.println(sculpture2.name + " has been successfully added to your inventory");
                profit += sculpture2.value;
-               Room.showDirections();
+              
             }
             else {
                System.out.println("Uh-oh! It looks like you have no way to defend yourself");
@@ -628,7 +635,7 @@ public class museum {
             inventory.add(sculpture3);
             System.out.println(sculpture3.name + " has been successfully added to inventory");
             profit += sculpture3.value;
-            Room.showDirections();
+            
          }
          
 
