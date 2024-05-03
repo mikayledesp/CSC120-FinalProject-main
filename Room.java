@@ -16,7 +16,7 @@ public int roomChoices;
  * @param name
  * @param desc
  */
-public Room (String name, String desc, String look, int roomChoices){
+public Room (String name, String desc, String look, int roomChoices){ 
   this.name = name;
   this.desc = desc;
   this.look = look;
