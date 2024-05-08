@@ -4,7 +4,6 @@ Note:  It's a good idea to also make this list available inside the game, in res
 
 + examine ___ (Artifact)
 + steal ___ (Artifact)
-+ drop ___ (Artifact)
 + (1)  north 
 + (2)  south
 + (3)  east 
