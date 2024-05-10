@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Room {
 
- 
 public String name;
 public String desc;
 public String look;

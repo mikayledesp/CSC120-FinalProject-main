@@ -680,7 +680,7 @@ public class museum {
             inventory.add(armor1);
             System.out.println(armor1.name + "has been successfully added to inventory");
             profit += armor1.value;
-\
+
          }
          }
          if (currentRoom == armor && userResponse.contains("STEAL SWORD")) {
@@ -689,7 +689,7 @@ public class museum {
             inventory.add(armor1);
             System.out.println(armor1.name + "has been successfully added to inventory");
             profit += armor1.value;
-\
+
          }
          if (currentRoom == armor && userResponse.contains("EXAMINE DAGGER")) {
             System.out.println(armor2.desc);
@@ -875,16 +875,12 @@ public class museum {
             f.add(img);
             f.setSize(2536,1666);
             f.setVisible(true);
-
          }
       } while (stillPlaying);
-
       // close scanner
       userInput.close();
-
       if (stillPlaying == false) {
          System.out.println("Better luck next time.");
       }
-
    }
 }
