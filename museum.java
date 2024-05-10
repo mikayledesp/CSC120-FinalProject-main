@@ -195,7 +195,7 @@ public class museum {
             userResponse = userInput.nextLine().toUpperCase();
             if ( userResponse.equals("STEAL")) {
                System.out.println("Stealing from exhibit.....");
-               System.out.println( "\nUh-oh Alarms sound! Did you really think you could steal the Mona Lisa? Don't overshoot your shot!e");
+               System.out.println( "\nUh-oh Alarms sound! Did you really think you could steal the Mona Lisa? Don't overshoot your shot!");
                System.out.println("Game Over!");
                stillPlaying = false;
             }
@@ -238,7 +238,7 @@ public class museum {
 
          if (currentRoom == portrait && userResponse.equals("STEAL MONA LISA")) {
             System.out.println("Stealing from exhibit.....");
-            System.out.println( "\nUh-oh Alarms sound! Did you really think you could steal the Mona Lisa? Don't overshoot your shot!e");
+            System.out.println( "\nUh-oh Alarms sound! Did you really think you could steal the Mona Lisa? Don't overshoot your shot!");
             System.out.println("Game Over!");
             stillPlaying = false;
          }
@@ -580,8 +580,7 @@ public class museum {
             
          }
 
-         if (currentRoom == sculpture && userResponse.equals("STEAL PERSEUS WITH THE HEAD OF MEDUSA")
-               || userResponse.equals("STEAL PERSEUS")) {
+         if (currentRoom == sculpture && userResponse.contains("STEAL PERSEUS")) {
             System.out.println("It looks like Perseus won't be stolen so he easily. He has a knife, and seems to be approaching to attack you. Do you have a weapon to fight back? ");
             
             if (inventory.contains(armor1) ) {
@@ -640,19 +639,19 @@ public class museum {
          
 
          // Sculpture Garden Direction
-         if (currentRoom == sculpture && userResponse.equals("GO NORTH")|| currentRoom == sculpture && userResponse.equals("1")) {
+         if (currentRoom == sculpture && userResponse.contains("NORTH")|| currentRoom == sculpture && userResponse.equals("1")) {
             System.out.println("\nYou are now going north! Heading towards the " + apothacary + apothacary.look);
             currentRoom = apothacary;
             userResponse = userInput.nextLine().toUpperCase();
 
          }
-         if (currentRoom == sculpture && userResponse.equals("GO EAST")|| currentRoom == sculpture && userResponse.equals("3")) {
+         if (currentRoom == sculpture && userResponse.contains("EAST")|| currentRoom == sculpture && userResponse.equals("3")) {
             System.out.println("\nYou are now going east! Heading towards the " + armor + armor.look);
             currentRoom = armor;
             userResponse = userInput.nextLine().toUpperCase();
          }
 
-         if (currentRoom == sculpture && userResponse.equals("GO SOUTH")|| currentRoom == sculpture && userResponse.equals("2")) {
+         if (currentRoom == sculpture && userResponse.contains("SOUTH")|| currentRoom == sculpture && userResponse.equals("2")) {
             System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             Room.showDirections();
             currentRoom = sculpture;
@@ -660,7 +659,7 @@ public class museum {
             
          }
 
-         if (currentRoom == sculpture && userResponse.equals("GO WEST")|| currentRoom == sculpture && userResponse.equals("4")) {
+         if (currentRoom == sculpture && userResponse.contains("WEST")|| currentRoom == sculpture && userResponse.equals("4")) {
             System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             Room.showDirections();
             currentRoom = sculpture;
@@ -672,8 +671,7 @@ public class museum {
          // actions in armor exhibit will happen here
          // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
          // Armory Examine and Steal Statements
-         if (currentRoom == armor && userResponse.equals("EXAMINE SWORD")
-               || currentRoom == armor && userResponse.equals("EXAMINE SWORD WITH A LAPIS LAZULI ENCRUSTED HILT")) {
+         if (currentRoom == armor && userResponse.contains("EXAMINE SWORD")) {
             System.out.println(armor1.desc);
             userResponse = userInput.nextLine().toUpperCase();
             if (currentRoom == armor && userResponse.equals("STEAL")) {
@@ -682,20 +680,18 @@ public class museum {
             inventory.add(armor1);
             System.out.println(armor1.name + "has been successfully added to inventory");
             profit += armor1.value;
-            Room.showDirections();
+\
          }
          }
-         if (currentRoom == armor && userResponse.equals("STEAL SWORD")
-               || currentRoom == armor && userResponse.equals("STEAL SWORD WITH A LAPIS LAZULI ENCRUSTED HILT")) {
+         if (currentRoom == armor && userResponse.contains("STEAL SWORD")) {
             System.out.println("Stealing Sword...");
             armorList.remove(armor1);
             inventory.add(armor1);
             System.out.println(armor1.name + "has been successfully added to inventory");
             profit += armor1.value;
-            Room.showDirections();
+\
          }
-         if (currentRoom == armor && userResponse.equals("EXAMINE DAGGER")
-               || currentRoom == armor && userResponse.equals("EXAMINE CURVED DAGGER WITH A BLACK HILT")) {
+         if (currentRoom == armor && userResponse.contains("EXAMINE DAGGER")) {
             System.out.println(armor2.desc);
             userResponse = userInput.nextLine().toUpperCase();
             if (currentRoom == armor && userResponse.equals("STEAL")
@@ -705,56 +701,52 @@ public class museum {
             inventory.add(armor2);
             System.out.println(armor2.name + "has been successfully added to inventory");
             profit += armor2.value;
-            Room.showDirections();
+   
          }
          }
-         if (currentRoom == armor && userResponse.equals("STEAL DAGGER")
-               || currentRoom == armor && userResponse.equals("STEAL CURVED DAGGER WITH A BLACK HILT")) {
+         if (currentRoom == armor && userResponse.contains("STEAL DAGGER")) {
             System.out.println("Stealing Dagger....");
             armorList.remove(armor2);
             inventory.add(armor2);
             System.out.println(armor2.name + "has been successfully added to inventory");
             profit += armor2.value;
-            Room.showDirections();
+           
          }
-         if (currentRoom == armor && userResponse.equals("EXAMINE JAVELIN")
-               || currentRoom == armor && userResponse.equals("EXAMINE GOLD JAVELIN")) {
+         if (currentRoom == armor && userResponse.contains("EXAMINE JAVELIN")) {
             System.out.println(armor3.desc);
             userResponse = userInput.nextLine().toUpperCase();
-            if (currentRoom == armor && userResponse.equals("STEAL JAVELIN")
-               || currentRoom == armor && userResponse.equals("STEAL GOLD JAVELIN")) {
+            if (currentRoom == armor && userResponse.equals("STEAL")) {
             System.out.println("Stealing Javelin...");
             armorList.remove(armor3);
             inventory.add(armor3);
             System.out.println(armor3.name + "has been successfully added to inventory");
             profit += armor3.value;
-            Room.showDirections();
+
          }
          }
-         if (currentRoom == armor && userResponse.equals("STEAL JAVELIN")
-               || currentRoom == armor && userResponse.equals("STEAL GOLD JAVELIN")) {
+         if (currentRoom == armor && userResponse.contains("STEAL JAVELIN")) {
             System.out.println("Stealing Javelin...");
             armorList.remove(armor3);
             inventory.add(armor3);
             System.out.println(armor3.name + "has been successfully added to inventory");
             profit += armor3.value;
-            Room.showDirections();
+      
          }
-         if (currentRoom == armor && userResponse.equals("GO NORTH")|| currentRoom == armor && userResponse.equals("1")) {
+         if (currentRoom == armor && userResponse.contains("NORTH")|| currentRoom == armor && userResponse.equals("1")) {
             System.out.println("\nYou are now going north! Heading back towards the " + historic + historic.look);
             currentRoom = historic;
             userResponse = userInput.nextLine().toUpperCase();
 
          }
          // Armory directions
-         if (currentRoom == armor && userResponse.equals("GO WEST")|| currentRoom == armor && userResponse.equals("4")) {
+         if (currentRoom == armor && userResponse.contains("WEST")|| currentRoom == armor && userResponse.equals("4")) {
             System.out.println("\nYou are now going west! Heading back towards the " + sculpture + sculpture.look);
             currentRoom = sculpture;
             userResponse = userInput.nextLine().toUpperCase();
             
 
          }
-         if (currentRoom == armor && userResponse.equals("GO SOUTH")|| currentRoom == armor && userResponse.equals("2")) {
+         if (currentRoom == armor && userResponse.contains("SOUTH")|| currentRoom == armor && userResponse.equals("2")) {
             System.out.println("\n You have now entered the Hall or Animals, as you turn to your left you hear a load roar that vibrates through the room.");
             currentRoom = animal;
             userResponse = userInput.nextLine().toUpperCase();
@@ -778,14 +770,14 @@ public class museum {
 
          }
 
-         if (currentRoom == animal && userResponse.equals("GO NORTH")|| currentRoom == animal && userResponse.equals("1")) {
+         if (currentRoom == animal && userResponse.contains("NORTH")|| currentRoom == animal && userResponse.equals("1")) {
             System.out.println("\nYou are now going north! Heading towards the " + armor + armor.look);
             currentRoom = armor;
             userResponse = userInput.nextLine().toUpperCase();
 
          }
 
-         if (currentRoom == animal && userResponse.equals("GO SOUTH")|| currentRoom == animal && userResponse.equals("2")) {
+         if (currentRoom == animal && userResponse.contains("SOUTH")|| currentRoom == animal && userResponse.equals("2")) {
             System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             Room.showDirections();
             currentRoom = animal;
@@ -795,7 +787,7 @@ public class museum {
 
          }
 
-         if (currentRoom == animal && userResponse.equals("GO EAST")|| currentRoom == animal && userResponse.equals("3")) {
+         if (currentRoom == animal && userResponse.contains("EAST")|| currentRoom == animal && userResponse.equals("3")) {
             System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             Room.showDirections();
             currentRoom = animal;
@@ -803,7 +795,7 @@ public class museum {
             
          }
 
-         if (currentRoom == animal && userResponse.equals("GO WEST")||currentRoom == animal && userResponse.equals("4")) {
+         if (currentRoom == animal && userResponse.contains("WEST")||currentRoom == animal && userResponse.equals("4")) {
             System.out.println("ERROR: you cannot go in this direction, please hit return and then try another direction!");
             Room.showDirections();
             currentRoom = animal;
@@ -811,14 +803,14 @@ public class museum {
             
          }
 
-         if (currentRoom == animal && userResponse.equals("ATTACK WITH DAGGER")) {
+         if (currentRoom == animal && userResponse.contains("ATTACK  DAGGER")) {
             System.out.println("What is a dagger going to do against a dinosaur...");
             System.out.println("You do not have the proper gear to attack your oppponent !!");
             System.out.println("The Triceratops rams into you with it's horns and delivers a fatal blow...");
             stillPlaying = false;
          }
          // if player chooses to attack with a sword
-         if (currentRoom == animal && userResponse.equals("ATTACK WITH SWORD")) {
+         if (currentRoom == animal && userResponse.contains("ATTACK SWORD")) {
             // only attack if sword is in inventory !
             if (inventory.contains(armor1)) {
                Triceratops.health -= 10;
@@ -855,9 +847,9 @@ public class museum {
 
          }
           // strings that work across all rooms
-         if (profit >= 200 ){
-            System.out.println("You've collected over 200 points, in order to keep you riches you must exit the museuem");
-         } else if (profit < 200 && userResponse.equals("EXIT")){
+         if (profit >= 150 && userResponse.contains("EXIT") ){
+            System.out.println("You've collected over 150 points, in order to keep you riches you must exit the museuem");
+         } else if (profit < 150 && userResponse.contains("EXIT")){
             System.out.println("You do not have enough points to make a decent profit! Whomp Whomp! Mission failed");
             stillPlaying = false;
          }
@@ -865,14 +857,14 @@ public class museum {
          if (userResponse.equals("WHAT ROOM AM I IN")) {
             System.out.println(currentRoom);
          }
-         if (userResponse.equals("INVENTORY")) {
+         if (userResponse.contains("INVENTORY")) {
             System.out.println(inventory);
          }
          if (userResponse.equals("HELP") || (userResponse.equals("?"))) {
             Room.showOptions();
             
          }
-         if (userResponse.equals("CHECK PROFIT") || userResponse.equals("PROFIT")) {
+         if ( userResponse.contains("PROFIT")) {
             System.out.println( "You now have " + profit + " points!" );
          }
         
